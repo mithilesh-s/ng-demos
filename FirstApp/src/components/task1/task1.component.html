@@ -1,0 +1,25 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Main App</title>
+</head>
+  
+
+
+<body>
+    <form  >
+        <input class="form-group" type="text" placeholder="Enter something.." #data formControlName="inputField" >
+        <button  type="reset" (click)="addList(data.value)">Add</button>
+      
+    </form>
+    
+
+
+    <ul *ngFor="let list of List; index as i " >
+        <li  (click)="removeList(i)"><a href="#">{{list}}</a></li>
+      </ul>
+   
+</body>
+
+</html>

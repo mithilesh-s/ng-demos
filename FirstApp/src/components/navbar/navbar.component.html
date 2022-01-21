@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Navbar</title>
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a [routerLink]="'/home'" class="navbar-brand">Home</a>
+        <button class="navbar-toggler" type="button"></button>
+
+        <a [routerLink]="'/form'" class="navbar-brand">Form</a>
+        <button class="navbar-toggler" type="button"></button>
+
+        <a [routerLink]="'/heading'" class="navbar-brand" >Heading</a>
+        <button class="navbar-toggler" type="button"></button>
+
+        <a [routerLink]="'/dashboard'" class="navbar-brand" >DashBoard</a>
+        <button class="navbar-toggler" type="button"></button>
+       
+        <h3 class="ml-auto" style="color:white;">Hello: {{data.name}}</h3>
+    
+        
+        
+      </nav>
+     
+</body>
+</html>

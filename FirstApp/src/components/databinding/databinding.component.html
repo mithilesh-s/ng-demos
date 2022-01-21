@@ -1,0 +1,22 @@
+<div class="container text-center">
+    <form #newForm="ngForm" (ngSubmit)="onSubmit(newForm.value)" >
+        {{newForm.value | json}}
+        <input type="text" name="email1" [(ngModel)]="userData.email"><br><br>
+        <input type="text" name="address1" [ngModel]="userData.address"> <br><br>
+        <input type="text" name="mobile1" [ngModel]="userData.mobile"> <br> <br>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+
+</div>
+
+<!-- we can do two way data binding in two types/////////prefilled form------> 
+
+<!-- with ngForm and with ngModel -->
+
+<!-- {{newForm.value | json} with [ngModel] and {{userData} | json} with [(ngModel)] --> 
+
+
+

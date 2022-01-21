@@ -1,0 +1,27 @@
+nav img{
+    width: 100px;
+    padding: 10px;
+}
+
+nav{
+    background-color: blueviolet;
+   
+}
+
+ul{
+    float:right
+}
+
+ul li{
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace; 
+    list-style-type: none ;
+    display: inline-block;
+    padding: 10px;
+}
+
+li a{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
