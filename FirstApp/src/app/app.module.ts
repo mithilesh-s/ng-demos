@@ -32,6 +32,9 @@ import { Task2Component } from 'src/components/task2/task2.component';
 import { HeroesDetailsComponent } from 'src/components/heroes-details/heroes-details.component';
 import { MessageComponent } from 'src/components/message/message.component';
 import { Dashboard1Component } from 'src/components/dashboard1/dashboard1.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from 'src/services/in-meomory-data.service';
+import { HeroSearchComponent } from 'src/components/hero-search/hero-search.component';
 
 
 
@@ -55,7 +58,8 @@ import { Dashboard1Component } from 'src/components/dashboard1/dashboard1.compon
     Task2Component,
     HeroesDetailsComponent,
     MessageComponent,
-    Dashboard1Component
+    Dashboard1Component,
+    HeroSearchComponent
     
     
   ],
@@ -72,7 +76,10 @@ import { Dashboard1Component } from 'src/components/dashboard1/dashboard1.compon
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService,{dataEncapsulation:false}
+    )
   
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
