@@ -8,16 +8,16 @@ import { Hero } from 'src/components/task2/hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 11, name: 'Mithilesh' },
+      { id: 12, name: 'Subham' },
+      { id: 13, name: 'Mahaveer' },
+      { id: 14, name: 'Tushar' },
+      { id: 15, name: 'Ujjval' },
+      { id: 16, name: 'Divya' },
+      { id: 17, name: 'Ritesh' },
+      { id: 18, name: 'Ashirvad' },
+      { id: 19, name: 'Kunal' },
+      { id: 20, name: 'Priyanshu' }
     ];
     return {heroes};
   }
