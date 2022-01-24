@@ -1,0 +1,15 @@
+step 1: just go through task2.component.html, here you will see the overview of the application
+step 2: open app-routing.module.ts and go at line no 40, here you will see which route what does
+step 3: open app.module.ts file here i have imported all required components and modules
+step 4: open src/services/hero.services.ts file here i have created some service methods used in task2
+step 5: go through below mentioned components(src/components)
+        1.hero-search
+        2.heroes-details
+        3.heroes
+        4.message
+        5.task2
+
+step 6: go through below mentioned services(src/services)
+        1.hero.service.ts
+        2.message.service.ts
+        3.in-memory-data.service.ts

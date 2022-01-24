@@ -36,6 +36,9 @@ const routes: Routes = [
      path:"dashboard",
      component:DashboardComponent
   },
+
+  // beblow routes are for task 2
+
   {
     path:"heroes",
     component:HeroesComponent
