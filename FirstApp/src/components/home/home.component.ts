@@ -11,11 +11,11 @@ export class HomeComponent  {
 
  constructor(private router:Router,private route:ActivatedRoute){}
 
- ngOnInit(): void {
-     this.route.queryParams.subscribe((params)=>{
-            console.log(params)
-            this.data=JSON.parse(params['data'])
-     })
- }
+//  ngOnInit(): void {
+//      this.route.queryParams.subscribe((params)=>{
+//             console.log(params)
+//             this.data=JSON.parse(params['data'])
+//      })
+//  }
 
 }

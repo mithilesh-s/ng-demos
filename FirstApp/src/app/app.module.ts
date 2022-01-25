@@ -35,6 +35,9 @@ import { Dashboard1Component } from 'src/components/dashboard1/dashboard1.compon
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from 'src/services/in-meomory-data.service';
 import { HeroSearchComponent } from 'src/components/hero-search/hero-search.component';
+import { PageNotFoundComponent } from 'src/components/page-not-found/page-not-found.component';
+import { DepartmentDetailsComponent } from 'src/components/department-details/department-details.component';
+import { DepartmentListComponent } from 'src/components/department-list/department-list.component';
 
 
 
@@ -59,7 +62,10 @@ import { HeroSearchComponent } from 'src/components/hero-search/hero-search.comp
     HeroesDetailsComponent,
     MessageComponent,
     Dashboard1Component,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PageNotFoundComponent,
+    DepartmentDetailsComponent,
+    DepartmentListComponent
     
     
   ],

@@ -11,16 +11,17 @@ import { catchError } from 'rxjs';
 })
 export class EmployeeService {
 
-  _url="assets/employee.json"
+  url='assets/new-employee.json'
 
   constructor(private http:HttpClient) { }
 
  getEmployees():Observable<IEmployee[]>{
-  return this.http.get<IEmployee[]>(this._url)
-            .pipe(catchError(this.errorHandler));
+  return this.http.get<IEmployee[]>(this.url)
+  .pipe(catchError(this.errorHandler));
  }
 
   errorHandler(error:HttpErrorResponse){
+    
     return throwError(error.message || "server error.");
     
   }

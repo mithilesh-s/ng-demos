@@ -9,46 +9,30 @@ import { DashboardComponent } from 'src/components/dashboard/dashboard.component
 import { HeroesComponent } from 'src/components/heroes/heroes.component';
 import { Dashboard1Component } from 'src/components/dashboard1/dashboard1.component';
 import { HeroesDetailsComponent } from 'src/components/heroes-details/heroes-details.component';
+import { PageNotFoundComponent } from 'src/components/page-not-found/page-not-found.component';
+import { DepartmentListComponent } from 'src/components/department-list/department-list.component';
+import { DepartmentDetailsComponent } from 'src/components/department-details/department-details.component';
+
 
 const routes: Routes = [
-  {
-    path:"home",
-    component:HomeComponent
-  },
-  // {
-  //     path:'',
-  //     redirectTo:'home',
-  //     pathMatch:'full'
-  // },
-  {
-    path:'form',
-    component:ReactiveFormComponent
-  },
-  {
-    path:'heading',
-    component:HeadingComponent
-  },
-  {
-     path:"navbar",
-     component:NavbarComponent
-  },
-  {
-     path:"dashboard",
-     component:DashboardComponent
-  },
+    { path:"home", component:HomeComponent },
+    { path:'form', component:ReactiveFormComponent },
+    { path:'heading', component:HeadingComponent },
+    { path:"navbar", component:NavbarComponent },
+    { path:"dashboard", component:DashboardComponent },
+    // { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  // beblow routes are for task 2
+    // beblow routes are for task 2
 
-  {
-    path:"heroes",
-    component:HeroesComponent
-  },
-  {
-    path:"dashboard1",
-    component:Dashboard1Component
-  },
-  { path: '', redirectTo: '/dashboard1', pathMatch: 'full' },
-  { path: 'detail/:id', component: HeroesDetailsComponent }
+    { path:"heroes", component:HeroesComponent },
+    { path:"dashboard1", component:Dashboard1Component },
+    // { path: '', redirectTo: '/dashboard1', pathMatch: 'full' },//default route or landing page route
+    { path: 'detail/:id', component: HeroesDetailsComponent },
+    // { path:"**", component:PageNotFoundComponent }           //this is wild card route when url does not match to any route then this component will execute
+
+    {path:'department',component:DepartmentListComponent},
+    {path:'department/:id',component:DepartmentDetailsComponent},
+
 ];
 
 @NgModule({
