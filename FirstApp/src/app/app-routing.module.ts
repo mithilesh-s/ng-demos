@@ -20,7 +20,7 @@ const routes: Routes = [
     { path:'heading', component:HeadingComponent },
     { path:"navbar", component:NavbarComponent },
     { path:"dashboard", component:DashboardComponent },
-    // { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '', redirectTo: '/show-department', pathMatch: 'full' },
 
     // beblow routes are for task 2
 
@@ -28,10 +28,11 @@ const routes: Routes = [
     { path:"dashboard1", component:Dashboard1Component },
     // { path: '', redirectTo: '/dashboard1', pathMatch: 'full' },//default route or landing page route
     { path: 'detail/:id', component: HeroesDetailsComponent },
-    // { path:"**", component:PageNotFoundComponent }           //this is wild card route when url does not match to any route then this component will execute
+         //this is wild card route when url does not match to any route then this component will execute
 
-    {path:'department',component:DepartmentListComponent},
-    {path:'department/:id',component:DepartmentDetailsComponent},
+    {path:'show-department',component:DepartmentListComponent},
+    {path:'show-department/:id',component:DepartmentDetailsComponent},
+    { path:"**", component:PageNotFoundComponent } 
 
 ];
 

@@ -1,7 +1,22 @@
 h1{
-    margin-top: 40px;
+    margin-top: 100px;
+    display: block;
+    font-size: 2em;
+    color:blue;
+    margin-bottom: 0.67em;
+    margin-left: 40px;
+    margin-right: 0;
+    font-weight: bold;
+
 }
 
 a{
     cursor: pointer;
 }
+
+.selected{
+    color:red
+}
+
+
+
