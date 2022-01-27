@@ -29,7 +29,10 @@ export class HeroesDetailsComponent implements OnInit {
   }
 
   save(): void {
-    if (this.hero) {
+    
+    if (this.hero!) {return}
+    if(this.hero){
+    
       this.heroService.updateHero(this.hero)
         .subscribe(() => this.goBack());
     }
