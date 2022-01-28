@@ -10,6 +10,7 @@ export class DepartmentDetailsComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute, private router:Router) { }
   urlId:any
+  public selectedId:any
   ngOnInit(): void {
     // let id=this.activatedRoute.snapshot.paramMap.get('id') this will not work for going previous and next
     this.activatedRoute.paramMap.subscribe((params: ParamMap)=>{ //this will work for going previous and next
@@ -22,20 +23,20 @@ export class DepartmentDetailsComponent implements OnInit {
   goPrevious()
   {
      let previousId=this.urlId-1;
-    //  this.router.navigate(['/departments',previousId])
+    //  this.router.navigate(['/show-department',previousId])
      this.router.navigate([previousId],{relativeTo:this.activatedRoute})
     
   }
   goNext()
   {
     let nextId=this.urlId+1;
-    // this.router.navigate(['/departments', nextId])
+    // this.router.navigate(['/show-department', nextId])
     this.router.navigate([nextId],{relativeTo:this.activatedRoute})
   }
 
   goDepartment(){
     let selectedId=this.urlId? this.urlId:null
-    // this.router.navigate(['/department',{id:selectedId}])
+    // this.router.navigate(['show-department',selectedId])
     this.router.navigate(['../'],{relativeTo:this.activatedRoute})
   }
 
