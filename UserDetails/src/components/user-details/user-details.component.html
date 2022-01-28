@@ -1,0 +1,102 @@
+<div class="container text-center  mt-3">
+    <h1>Hello, this is UserDetails form</h1>
+</div>
+
+<div class="card mt-5" style="width: 40rem;">
+    <div class="card-body">
+
+        <form #userDetails="ngForm" (submit)="submitForm(userDetails.value)">
+            <div class="form-group">
+                <label>Name:</label>
+                <input required type="text" #userName="ngModel" class="form-control" name="userName" ngModel
+                    placeholder="Enter Name" minlength="4" appForbiddenName="admin" pattern="^[a-zA-Z0-9_-]{0,}$">
+                
+                <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
+
+                    <div *ngIf="userName.errors?.['required']">
+                        Name is required.
+                    </div>
+
+                    <div *ngIf="userName.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+
+                    <div *ngIf="userName.errors?.['forbiddenName']">
+                        Name can not be admin
+                    </div>
+
+                    <div *ngIf="userName.errors?.['pattern']">
+                        no white space
+                    </div>
+                    
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input required type="email" class="form-control" name="userEmail" #userEmail="ngModel" ngModel email="true" placeholder="Enter Email"
+                 appForbiddenName="admin@gmail.com">
+                
+                <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)" class="alert alert-danger">
+
+                    <div *ngIf="userEmail.errors?.['required']">
+                        Email is required.
+                    </div>
+
+
+                    <div *ngIf="userEmail.errors?.['forbiddenName']">
+                        This email can not taken.
+                    </div>
+
+                    <div *ngIf="userEmail.errors?.['email']">
+                       Email is invalid
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Password:</label>
+                <input required type="password" class="form-control" name="userPassword" #userPassword="ngModel" ngModel
+                    placeholder="Enter Password" pattern="((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8})" >
+
+                    <div *ngIf="userPassword.invalid && (userPassword.dirty || userPassword.touched)" class="alert alert-danger">
+
+                        <div *ngIf="userPassword.errors?.['required']">
+                            Password is required.
+                        </div>
+    
+                        <div *ngIf="userPassword.errors?.['pattern']">
+                          At least 8 characters in length including uppercase, lowercase letters, numbers and special characters
+                        </div>
+                        
+                    </div>
+    
+
+            </div>
+
+            <div class="form-group">
+                <label>Phone:</label>
+                <input required type="number" class="form-control" name="userPhone" #userPhone="ngModel" ngModel placeholder="Enter Phone" 
+                pattern="^[2-9]{1}[0-9]{9}$" >
+                <div *ngIf="userPhone.invalid && (userPhone.dirty || userPhone.touched)" class="alert alert-danger">
+
+                    <div *ngIf="userPhone.errors?.['required']">
+                       Phone is required.
+                    </div>
+
+                    <div *ngIf="userPhone.errors?.['pattern']">
+                      Enter the valid Mobile no. and can not start from 0 and 1
+                    </div>
+                    
+                </div>
+            </div>
+
+            <button [disabled]="userDetails.invalid" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+
+{{data |json}}
