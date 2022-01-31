@@ -15,24 +15,24 @@ import { DepartmentDetailsComponent } from 'src/components/department-details/de
 
 
 const routes: Routes = [
-    { path:"home", component:HomeComponent },
-    { path:'form', component:ReactiveFormComponent },
-    { path:'heading', component:HeadingComponent },
-    { path:"navbar", component:NavbarComponent },
-    { path:"dashboard", component:DashboardComponent },
-    { path: '', redirectTo: '/show-department', pathMatch: 'full' },
+    // { path:"home", component:HomeComponent },
+    // { path:'form', component:ReactiveFormComponent },
+    // { path:'heading', component:HeadingComponent },
+    // { path:"navbar", component:NavbarComponent },
+    // { path:"dashboard", component:DashboardComponent },
+    // { path: '', redirectTo: '/show-department', pathMatch: 'full' },
 
-    // beblow routes are for task 2
+    // // beblow routes are for task 2
 
-    { path:"heroes", component:HeroesComponent },
-    { path:"dashboard1", component:Dashboard1Component },
-    // { path: '', redirectTo: '/dashboard1', pathMatch: 'full' },//default route or landing page route
-    { path: 'detail/:id', component: HeroesDetailsComponent },
-         //this is wild card route when url does not match to any route then this component will execute
+    // { path:"heroes", component:HeroesComponent },
+    // { path:"dashboard1", component:Dashboard1Component },
+    // // { path: '', redirectTo: '/dashboard1', pathMatch: 'full' },//default route or landing page route
+    // { path: 'detail/:id', component: HeroesDetailsComponent },
+    //      //this is wild card route when url does not match to any route then this component will execute
 
-    {path:'show-department',component:DepartmentListComponent},
-    {path:'show-department/:id',component:DepartmentDetailsComponent},
-    { path:"**", component:PageNotFoundComponent } 
+    // {path:'show-department',component:DepartmentListComponent},
+    // {path:'show-department/:id',component:DepartmentDetailsComponent},
+    // { path:"**", component:PageNotFoundComponent } 
 
 ];
 

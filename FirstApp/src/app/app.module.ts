@@ -38,6 +38,7 @@ import { HeroSearchComponent } from 'src/components/hero-search/hero-search.comp
 import { PageNotFoundComponent } from 'src/components/page-not-found/page-not-found.component';
 import { DepartmentDetailsComponent } from 'src/components/department-details/department-details.component';
 import { DepartmentListComponent } from 'src/components/department-list/department-list.component';
+import { UserModule } from 'src/user/user.module';
 
 
 
@@ -85,7 +86,8 @@ import { DepartmentListComponent } from 'src/components/department-list/departme
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService,{dataEncapsulation:false}
-    )
+    ),
+    UserModule
   
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
