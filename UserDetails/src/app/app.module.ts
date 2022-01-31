@@ -5,20 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserDetailsComponent } from 'src/components/user-details/user-details.component';
-import { FormsModule } from '@angular/forms';
-// import { NgModel } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { ReactiveUserDetailsComponent } from 'src/components/reactive-user-details/reactive-user-details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ReactiveUserDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    // NgModel
+    ReactiveFormsModule,
+
    
   ],
   providers: [],

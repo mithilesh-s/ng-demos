@@ -9,7 +9,7 @@
             <div class="form-group">
                 <label>Name:</label>
                 <input required type="text" #userName="ngModel" class="form-control" name="userName" ngModel
-                    placeholder="Enter Name" minlength="4" appForbiddenName="admin" pattern="^[a-zA-Z0-9_-]{0,}$">
+                    placeholder="Enter Name" minlength="4" appForbiddenName="admin" pattern="[a-zA-Z]+( {1}.[a-zA-Z]*)*">
                 
                 <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert alert-danger">
 
@@ -26,7 +26,7 @@
                     </div>
 
                     <div *ngIf="userName.errors?.['pattern']">
-                        no white space
+                        No white space
                     </div>
                     
                 </div>
@@ -36,8 +36,8 @@
 
             <div class="form-group">
                 <label>Email:</label>
-                <input required type="email" class="form-control" name="userEmail" #userEmail="ngModel" ngModel email="true" placeholder="Enter Email"
-                 appForbiddenName="admin@gmail.com">
+                <input required type="email" class="form-control" name="userEmail" #userEmail="ngModel" ngModel  placeholder="Enter Email"
+                 appForbiddenName="admin@gmail.com" pattern="\w+.@.[a-z]+.\..[a-z]+">
                 
                 <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)" class="alert alert-danger">
 
@@ -53,6 +53,10 @@
                     <div *ngIf="userEmail.errors?.['email']">
                        Email is invalid
                     </div>
+
+                    <div *ngIf="userEmail.errors?.['pattern']">
+                        Email is not valid
+                     </div>
                     
                 </div>
             </div>
@@ -69,7 +73,7 @@
                         </div>
     
                         <div *ngIf="userPassword.errors?.['pattern']">
-                          At least 8 characters in length including uppercase, lowercase letters, numbers and special characters
+                         Password should be of 8 characters in length including uppercase, lowercase letters, numbers and special characters
                         </div>
                         
                     </div>
