@@ -45,7 +45,7 @@
               </div> 
             </div>
             
-            <button type="submit" class="btn btn-primary" (click)="isDisabled()" >Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid" >Submit</button>
           </form>
     </div>
 

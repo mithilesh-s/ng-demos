@@ -16,22 +16,29 @@ export class ReactiveUserDetailsComponent implements OnInit {
 
   constructor(private fb:FormBuilder) { }
 
+  // getting userName from userForm
   get userName(){
     return this.userForm.get('userName')
   }
 
+   // getting userEmail from userForm
   get userEmail(){
     return this.userForm.get('userEmail')
   }
+
+   // getting userPassword from userForm
   get userPassword(){
     return this.userForm.get('userPassword')
   }
+
+   // getting userPhone from userForm
   get userPhone(){
     return this.userForm.get('userPhone')
   }
 
   ngOnInit(): void {
 
+    // regex are taken from stackoverflow.com
     this.userForm=this.fb.group({
       userName:['',[Validators.required,Validators.pattern("[a-zA-Z]+( {1}.[a-zA-Z]*)*"),Validators.minLength(4),forbiddenUserNameValidator(/admin/)]],
       userEmail:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$"),forbiddenUserNameValidator(/admin@gmail.com/)]],
@@ -48,15 +55,6 @@ export class ReactiveUserDetailsComponent implements OnInit {
 
   }
 
-  isDisabled()
-  {
-    if(this.userForm.invalid){
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
+  
 
 }

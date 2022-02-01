@@ -11,25 +11,29 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  data:JSON | undefined
-  infos:any
-  
-
- submitForm(data:any){
- 
-  this.data=data;
-  
-
- }
+  data: JSON | undefined
 
 
- isDisabled(info:any)
- {
-   if (info.trim()!==info) {
-    return true;
-    }
-    return false
-    
- }
+
+  submitForm(data: any) {
+
+    this.data = data;
+  }
+
+
+
+
+   
+
+
+
+
 
 }
+
+
+
+
+
+
+
