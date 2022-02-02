@@ -1,0 +1,66 @@
+<button mat-raised-button  color="primary" (click)="isEditable = !isEditable">
+    {{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+  </button>
+  
+  <mat-stepper linear #stepper >
+    <mat-step [stepControl]="firstFormGroup" [editable]="isEditable" >
+      <form [formGroup]="firstFormGroup" (ngSubmit)="doSubmit1()">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Name:</mat-label>
+          <input matInput formControlName="name" placeholder="enter your name" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email:</mat-label>
+          <input matInput formControlName="email" placeholder="enter your email" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Password:</mat-label>
+          <input matInput formControlName="password" placeholder="enter your password" required>
+        </mat-form-field>
+        <div>
+          <button mat-raised-button matStepperNext  color="primary">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+      <form [formGroup]="secondFormGroup" (ngSubmit)="doSubmit2()">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Village:</mat-label>
+          <input matInput formControlName="village" placeholder="enter your village"
+                 required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>City:</mat-label>
+          <input matInput formControlName="city" placeholder="enter your city"
+                 required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>District:</mat-label>
+          <input matInput formControlName="district" placeholder="enter your district"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+
+  {{data1 |json}}
+  {{data2 |json}}
+  
