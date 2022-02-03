@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #9c27b0, #8ecdff);
+
+}
+
+nav {
+    width: 80%;
+    position: sticky;
+    margin: 20px auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+
+}
+
+.logo {
+    flex-basis: 20%;
+
+}
+
+.logo img {
+    width: 150px;
+
+}
+
+.nav-link {
+    flex: 1;
+    text-align: right;
+}
+
+.nav-link ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px
+}
+
+.nav-link ul li a {
+    color: #fff;
+    text-decoration: none;
+
+
+}
+
+/* .nav-link ul li a:hover{
+    color:blueviolet
+} */
+
+.nav-link ul li a:hover {
+    color: blueviolet;
+    font-size: 20px;
+}
+
+.information {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+
+}
+
+#circle {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+    transform: rotate(0deg);
+    transition: 1s;
+
+}
+
+.feature img {
+    width: 40%;
+}
+
+.feature {
+
+    position: absolute;
+    display: flex;
+    color: #fff;
+}
+
+
+
+.feature div {
+    margin-left: 25px;
+}
+
+.feature div p {
+    margin-top: 8px;
+}
+
+/* camera */
+.one {
+    top: 400px;
+    right: -200px;
+}
+
+
+/* processor*/
+.two {
+    top: -50px;
+    left: 200px;
+    transform: rotate(-90deg);
+}
+
+/* display */
+.three {
+    bottom: 400px;
+    left: -200px;
+
+    transform: rotate(180deg);
+}
+
+/* battery */
+
+.four {
+    bottom: -10px;
+    right: 250px;
+    transform: rotate(90deg);
+}
+
+.mobile {
+    width: 150px;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.controls {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+
+}
+
+.controls h3 {
+    margin: 15px 0;
+    color: #fff;
+}
+
+#upBtn {
+    width: 15px;
+    cursor: pointer;
+}
+
+#downBtn {
+    width: 15px;
+    cursor: pointer;
+    transform: rotate(180deg);
+}
+
+.overlay {
+    width: 0;
+    height: 0;
+    border-top: 500px solid #fff;
+    border-right: 600px solid transparent;
+    border-bottom: 500px solid #fff;
+    border-left: 500px solid #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.text-center {
+    text-align: center;
+    color: blueviolet;
+    font-style: italic;
+    font-family: fantasy;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.homeImg {
+    width: 1900px;
+    height: 900px;
+    opacity: 0.6;
+}
+
+.container h1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
