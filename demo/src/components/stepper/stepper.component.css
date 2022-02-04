@@ -1,0 +1,48 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+div button{
+  margin: 5px;
+}
+
+.card{
+  width: 50%;
+  background-color: lightgrey;
+  /* height: 35rem; */
+  left: 21%;
+
+}
+
+.form-control{
+  width: 95%;
+}
+
+label{
+  font-weight: bold;
+}
+
+.row{
+  margin: 3px;
+
+}
+
+.card-body{
+  padding: 10px;
+}
+
+.btnOfInfoPage{
+  margin-top: 10px;
+  left: 335px;
+}
+.container{
+  padding-left: 28px;
+  padding-top: 5px;
+}
+
+
+
