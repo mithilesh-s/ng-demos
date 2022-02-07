@@ -1,0 +1,95 @@
+.card{
+  width:22%;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.card-body1{
+  margin-left:  110px;
+  margin-bottom: 12px;
+}
+.card-body2{
+  margin: 10px;
+}
+#sp1{
+  width: 600rem;
+}
+
+
+
+img {
+  padding-top: 10px;
+  padding-left: 10px;
+  border-radius: 50%;
+  height: 150px;
+}
+
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+.btn{
+  margin: 2px;
+}
+.span-right2{
+  margin-left: 200px;
+
+}
+
+#card1{
+  margin-left: 48px;
+}
+#card2{
+  width: 77rem;
+  height: 18rem;
+}
+#card3{
+  margin-left:48px;
+
+}
+#card4{
+  margin-left: 22px;
+  width: 30%;
+}
+#card5{
+  margin-left: 38px;
+  width: 30%;
+
+}
+
+#full-name{
+  margin-left: 400px;
+}
+#email{
+  margin-left: 435px;
+}
+#phone{
+  margin-left: 430px;
+}
+#mobile{
+  margin-left: 425px;
+}
+#address{
+  margin-left: 418px;
+}
+
+#web{
+  margin-left: 200px;
+}
+#github{
+  margin-left: 210px;
+}
+#twitter{
+  margin-left: 208px;
+}
+#instagram{
+  margin-left: 188px;
+}
+#facebook{
+  margin-left: 195px;
+}
+nav{
+  background-color:lightgray;
+  
+}
+
