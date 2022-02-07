@@ -14,7 +14,7 @@
             <div *ngIf="userName?.invalid && userName?.touched">
               <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small>
                 <small class="text-danger" *ngIf="userName?.errors?.['minlength']">Name length should be at least 4</small>
-                <small class="text-danger" *ngIf="userName?.errors?.['pattern']">space not allowed</small>
+                <small class="text-danger" *ngIf="userName?.errors?.['pattern']">Enter a valid name</small>
                 <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is invalid name</small>
             </div>
           </div>
@@ -50,21 +50,21 @@
             <input type="number" [class.is-invalid]="userPhone?.invalid && userPhone?.touched" class="form-control" formControlName="userPhone" placeholder="Enter Phone">
             <div *ngIf="userPhone?.invalid && userPhone?.touched">
               <small class="text-danger" *ngIf="userPhone?.errors?.['required']">Phone is required</small>
-              <small class="text-danger" *ngIf="userPhone?.errors?.['pattern']">Enter valid phone and phone can not start from 0 and 1 </small>
+              <small class="text-danger" *ngIf="userPhone?.errors?.['pattern']">Enter valid indian phone no.</small>
               <small class="text-danger" *ngIf="userPhone?.errors?.['forbiddenName']">{{userPhone?.errors?.['forbiddenName'].value}} is invalid phone</small>
             </div>
           </div>
 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" formControlName="gender" name="gender"   value="option1">
+            <input class="form-check-input" type="radio" formControlName="gender" name="gender"   value="male">
             <label class="form-check-label" for="inlineRadio1">Male</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="option2">
+            <input class="form-check-input" type="radio" formControlName="gender" name="gender" value="female">
             <label class="form-check-label" for="inlineRadio2">Female</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" formControlName="gender" name="gender"  value="option3">
+            <input class="form-check-input" type="radio" formControlName="gender" name="gender"  value="other">
             <label class="form-check-label" for="inlineRadio3">Other</label>
           </div>
 
@@ -78,7 +78,7 @@
 
           <mat-form-field appearance="fill">
             <mat-label>State</mat-label>
-            <mat-select >
+            <mat-select formControlName="dropdown">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
             </mat-select>
@@ -86,7 +86,7 @@
 
           <mat-form-field class="example-full-width ml-5" appearance="fill">
             <mat-label>Date of Birth</mat-label>
-            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker">
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="datePicker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -106,7 +106,7 @@
   </mat-step>
 
   <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
+    <form [formGroup]="secondFormGroup" (ngSubmit)="secondFormSubmit()">
       <ng-template matStepLabel>Address Information</ng-template>
       <div class="card">
         <div class="card-body">
@@ -137,8 +137,8 @@
              <input type="number" [class.is-invalid]="userPincode?.invalid && userPincode?.touched" class="form-control" formControlName="userPincode" placeholder="Enter Pincode">
              <div *ngIf="userPincode?.invalid && userPincode?.touched">
                 <small class="text-danger" *ngIf="userPincode?.errors?.['required']">Pincode is required</small>
-                <small class="text-danger" *ngIf="userPincode?.errors?.['minlength']">Pincode length should be 6</small>
-                <small class="text-danger" *ngIf="userPincode?.errors?.['maxlength']">Pincode length should be 6</small>
+                <small class="text-danger" *ngIf="userPincode?.errors?.['pattern']">Pincode is invalid</small>
+
                 <small class="text-danger" *ngIf="userPincode?.errors?.['forbiddenName']">{{userPincode?.errors?.['forbiddenName'].value}} is invalid pincode</small>
             </div>
            </div>
@@ -160,13 +160,13 @@
         <button mat-raised-button color="primary" matStepperPrevious>
           Back
         </button>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
+        <button mat-raised-button color="accent" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
 
   <mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
-    <form [formGroup]="thirdFormGroup">
+    <form [formGroup]="thirdFormGroup" (ngSubmit)="thirdFormSubmit()">
       <ng-template matStepLabel>Education Information</ng-template>
       <div class="card">
         <div class="card-body">
@@ -177,6 +177,7 @@
              <input type="number" [class.is-invalid]="user10thPercentage?.invalid && user10thPercentage?.touched" class="form-control" formControlName="user10thPercentage" placeholder="Enter 10th Percentage">
              <div *ngIf="user10thPercentage?.invalid && user10thPercentage?.touched">
                <small class="text-danger" *ngIf="user10thPercentage?.errors?.['required']">10th Percentage is required</small>
+               <small class="text-danger" *ngIf="user10thPercentage?.errors?.['pattern']">10th Percentage is invalid</small>
              </div>
            </div>
 
@@ -185,6 +186,7 @@
              <input type="number" [class.is-invalid]="user12thPercentage?.invalid && user12thPercentage?.touched" class="form-control" formControlName="user12thPercentage" placeholder="Enter 10th Percentage">
              <div *ngIf="user12thPercentage?.invalid && user12thPercentage?.touched">
               <small class="text-danger" *ngIf="user12thPercentage?.errors?.['required']">12th Percentage is required</small>
+              <small class="text-danger" *ngIf="user12thPercentage?.errors?.['pattern']">12th Percentage is invalid</small>
             </div>
            </div>
 
@@ -193,6 +195,7 @@
              <input type="number" [class.is-invalid]="graduationPercentage?.invalid && graduationPercentage?.touched" class="form-control" formControlName="graduationPercentage" placeholder="Enter graduation Percentage">
              <div *ngIf="graduationPercentage?.invalid && graduationPercentage?.touched">
               <small class="text-danger" *ngIf="graduationPercentage?.errors?.['required']">Graduation percentage is required</small>
+              <small class="text-danger" *ngIf="graduationPercentage?.errors?.['pattern']">Graduation percentage is invalid</small>
             </div>
            </div>
 
@@ -205,17 +208,19 @@
         <button mat-raised-button color="primary" matStepperPrevious>
           Back
         </button>
-        <button mat-raised-button color="primary" matStepperNext>Next</button>
+        <button mat-raised-button color="accent" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
 
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    <div class="card">
+      <div class="card-body">
+        <p>You are successfully completed the form.</p>
     <div>
       <button mat-raised-button color="primary" matStepperPrevious>Back</button>
-      <button mat-raised-button color="primary" (click)="stepper.reset()">
+      <button mat-raised-button color="accent" (click)="stepper.reset()">
         Reset
       </button>
       <button
@@ -225,6 +230,8 @@
       >
         {{ !isEditable ? "Enable edit mode" : "Disable edit mode" }}
       </button>
+    </div>
+      </div>
     </div>
   </mat-step>
 </mat-stepper>

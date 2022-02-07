@@ -21,6 +21,9 @@ export class StepperComponent  {
   minDate: Date;
   maxDate: Date;
   isSubmit:boolean=false;
+  data1:any
+  data2:any
+  data3:any
 
 
  // getting userName from userForm
@@ -93,34 +96,38 @@ get graduationPercentage(){
     this.maxDate = new Date();
   }
 
-  // userName:['',[Validators.required,Validators.pattern("[a-zA-Z]+( {1}.[a-zA-Z]*)*"),Validators.minLength(4),forbiddenUserNameValidator(/admin/)]],
-  //     userEmail:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$"),forbiddenUserNameValidator(/admin@gmail.com/)]],
-  //     userPassword: ['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'),forbiddenUserNameValidator(/Password@123/)]],
-  //     userPhone:['',[,Validators.required,Validators.pattern("^[2-9]{1}[0-9]{9}$"),forbiddenUserNameValidator(/2345678900/)]]
+  textRegex=/^[a-zA-Z ]*[a-zA-Z]{1,60}$/
+  phoneRegex=/^[6-9][0-9]{9}$/;
+  emailRegex=/^[A-Za-z._]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}([.][A-za-z]{2,6})?$/;
+  passwordRegex='(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])(?=\\S+$)[A-Za-z\d$@$!%*?&].{8,}'
+  pincodeRegex=/^[1-9][0-9]{5}$/
+  percentageRegex=/^(0*100{1,1}\.?((?<=\.)0*)?%?$)|(^0*\d{0,2}\.?((?<=\.)\d*)?%?)$/
 
   ngOnInit() {
     this.firstFormGroup = this.formBuilder.group({
-      userName: ['',[Validators.required,Validators.minLength(4),Validators.pattern("[a-zA-Z]+( {1}.[a-zA-Z]*)*"),forbiddenUserValidator(/admin/)]],
-      userEmail: ['',[Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$"),forbiddenUserValidator(/admin@gmail.com/)]] ,
-      userPassword: ['',[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8}'),forbiddenUserValidator(/Password@123/)]],
+      userName: ['',[Validators.required,Validators.minLength(4),Validators.pattern(this.textRegex),forbiddenUserValidator(/admin/)]],
+      userEmail: ['',[Validators.required,Validators.pattern(this.emailRegex),forbiddenUserValidator(/admin@gmail.com/)]] ,
+      userPassword: ['',[Validators.required, Validators.pattern(this.passwordRegex),forbiddenUserValidator(/Password@123/)]],
       userConfirmPassword: ['',Validators.required ],
-      userPhone:['',[Validators.required,Validators.pattern("^[2-9]{1}[0-9]{9}$"),forbiddenUserValidator(/2345678900/)]],
+      userPhone:['',[Validators.required,Validators.pattern(this.phoneRegex),forbiddenUserValidator(/2345678900/)]],
       gender:['',[Validators.required]],
+      dropdown:['',[Validators.required]],
+      datePicker:['',[Validators.required]],
 
     }, { validator: passwordValidator });
 
     this.secondFormGroup = this.formBuilder.group({
-      userCity: ['',[Validators.required,Validators.minLength(4),Validators.pattern("[a-zA-Z]+( {1}.[a-zA-Z]*)*")] ],
-      userDistrict: ['',[Validators.required,Validators.minLength(4),Validators.pattern("[a-zA-Z]+( {1}.[a-zA-Z]*)*")] ],
-      userPincode: ['',[Validators.required,Validators.maxLength(6), Validators.minLength(6),forbiddenUserValidator(/000000/)] ],
-      userState: ['',[Validators.required,Validators.minLength(4),Validators.pattern("[a-zA-Z]+( {1}.[a-zA-Z]*)*")] ],
+      userCity: ['',[Validators.required,Validators.minLength(4),Validators.pattern(this.textRegex)] ],
+      userDistrict: ['',[Validators.required,Validators.minLength(4),Validators.pattern(this.textRegex)] ],
+      userPincode: ['',[Validators.required,Validators.pattern(this.pincodeRegex),forbiddenUserValidator(/000000/)] ],
+      userState: ['',[Validators.required,Validators.minLength(4),Validators.pattern(this.textRegex)] ],
 
     });
 
     this.thirdFormGroup = this.formBuilder.group({
-      user10thPercentage: ['',[Validators.required] ],
-      user12thPercentage: ['', [Validators.required]],
-      graduationPercentage: ['',[Validators.required] ],
+      user10thPercentage: ['',[Validators.required,Validators.pattern(this.percentageRegex)] ],
+      user12thPercentage: ['', [Validators.required,Validators.pattern(this.percentageRegex)]],
+      graduationPercentage: ['',[Validators.required,Validators.pattern(this.percentageRegex)] ],
 
     });
   }
@@ -133,8 +140,19 @@ get graduationPercentage(){
 
   ];
 
+
+
   firstFormSubmit(){
-    this.isSubmit=true;
+    this.data1=this.firstFormGroup.value
+    console.log(this.data1)
+  }
+  secondFormSubmit(){
+    this.data2=this.secondFormGroup.value
+    console.log(this.data2)
+  }
+  thirdFormSubmit(){
+    this.data3=this.thirdFormGroup.value
+    console.log(this.data3)
   }
 
 }

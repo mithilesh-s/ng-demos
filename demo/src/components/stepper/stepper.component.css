@@ -1,5 +1,6 @@
 .mat-stepper-horizontal {
   margin-top: 8px;
+  margin-right: 10px;
 }
 
 .mat-form-field {
@@ -11,6 +12,7 @@ div button{
 }
 
 .card{
+  margin-top: 10px;
   width: 50%;
   background-color: lightgrey;
   /* height: 35rem; */
