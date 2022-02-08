@@ -12,10 +12,14 @@
             <label>Name:</label>
             <input type="text" [class.is-invalid]="userName?.invalid && userName?.touched" class="form-control" formControlName="userName" placeholder="Enter Name:">
             <div *ngIf="userName?.invalid && userName?.touched">
-              <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small>
+              <!-- <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small> -->
                 <small class="text-danger" *ngIf="userName?.errors?.['minlength']">Name length should be at least 4</small>
                 <small class="text-danger" *ngIf="userName?.errors?.['pattern']">Enter a valid name</small>
                 <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is invalid name</small>
+            </div>
+            <!-- Showing error method -->
+            <div *ngIf="isSubmit && userName?.errors?.['required']">
+              <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small>
             </div>
           </div>
 
@@ -72,6 +76,7 @@
             <div *ngIf="isSubmit && gender?.errors?.['required']">
               <small class="text-danger" *ngIf="gender?.errors?.['required']">Gender is required</small>
             </div>
+
 
 
         <div class="row">

@@ -145,6 +145,7 @@ get graduationPercentage(){
   firstFormSubmit(){
     this.data1=this.firstFormGroup.value
     console.log(this.data1)
+    this.isSubmit=true;
   }
   secondFormSubmit(){
     this.data2=this.secondFormGroup.value
