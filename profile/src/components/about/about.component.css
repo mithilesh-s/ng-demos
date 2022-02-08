@@ -1,0 +1,21 @@
+img {
+
+  width: 150;
+  height: 150px;
+  border-radius: 50%;
+
+
+}
+.card{
+  width:24rem;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.card-body{
+  margin-left: 90px;
+}
+.title {
+  color: grey;
+  font-size: 18px;
+}
+

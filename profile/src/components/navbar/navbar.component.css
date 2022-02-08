@@ -1,0 +1,26 @@
+nav{
+  background-color:lightgray;
+
+}
+
+a:link {
+  color: rgb(68, 0, 255);
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+a:active {
+  color: red;
+}
+/* mouse over link
+a:hover {
+  color:blueviolet;
+} */
+
+a.highlight:hover {
+  color:blueviolet;
+}
+
