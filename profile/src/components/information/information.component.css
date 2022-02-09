@@ -1,9 +1,19 @@
-.card{
-  width:83rem;
+.card {
+  width: 83rem;
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-left: 30px;
 }
-.information-value{
-  margin-left: 380px;
+
+.information-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-one {
+  flex: 1;
+}
+
+.flex-two {
+  flex: 1;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'about-page',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
 
   constructor() { }
+
+  @Input() aboutPage:any
 
   ngOnInit() {
   }

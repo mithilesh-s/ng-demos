@@ -1,14 +1,15 @@
 <div class="d-flex">
   <div class="column1 ">
-    <about-page></about-page>
-    <social-media-page></social-media-page>
+    <about-page [aboutPage]="aboutPageData"></about-page>
+    <social-media-page [socialMediaPage]="socialMediaPageData"></social-media-page>
   </div>
 
   <div class="column2">
-    <information-page></information-page>
+    <information-page [informationPage]="informationPageData" ></information-page>
    <div class="p-status">
-    <project-status-page></project-status-page>
-    <project-status-page></project-status-page>
+     <project-status-page [projectStatusPage]="projectStatusPageData"></project-status-page>
+     <project-status-page [projectStatusPage]="projectStatusPageData"></project-status-page>
+
    </div>
   </div>
 

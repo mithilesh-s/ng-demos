@@ -12,10 +12,18 @@ img {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .card-body{
-  margin-left: 90px;
+  margin-left: 70px;
 }
-.title {
+.role{
   color: grey;
-  font-size: 18px;
+  font-size: 17px;
+
+}
+.add{
+
+  color: grey;
+  font-size: 16px;
+  position: relative;
+  padding-right:10px;
 }
 

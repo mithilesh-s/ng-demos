@@ -1,10 +1,20 @@
 .card{
-  width:90%;
+  width:90m;
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  height: 20rem;
+  height: 18rem;
 
 }
-.social-media-value{
-  margin-left: 150px;
+.social-media-data{
+   display: flex;
+   justify-content:space-between;
+
+
 }
+.flex-one{
+  flex: 1;
+}
+.flex-two{
+  flex: 1;
+}
+

@@ -3,28 +3,29 @@
     <div class="card-body">
          <h5><i class="mr-2"style="color:#40c4ff">assignment</i>Project Status</h5>
          <div>
-          Web Design
-          <div><progress style="width: 100%;" value="75" max="100"></progress></div>
+          {{projectStatusPage[0].label}}
+          <div><progress style="width: 100%;" value={{projectStatusPage[0].progressValue}} max="100"></progress></div>
          </div>
          <div>
-          Website Markup
-          <div><progress style="width: 100%;" value="70" max="100"></progress></div>
+          {{projectStatusPage[1].label}}
+          <div><progress style="width: 100%;" value={{projectStatusPage[1].progressValue}} max="100"></progress></div>
          </div>
 
          <div>
-          One Page
-          <div><progress style="width: 100%;" value="80" max="100"></progress></div>
+          {{projectStatusPage[2].label}}
+          <div><progress style="width: 100%;" value={{projectStatusPage[2].progressValue}} max="100"></progress></div>
          </div>
 
          <div>
-          Mobile Template
-          <div><progress style="width: 100%;" value="50" max="100"></progress></div>
+          {{projectStatusPage[3].label}}
+          <div><progress style="width: 100%;" value={{projectStatusPage[3].progressValue}} max="100"></progress></div>
          </div>
 
          <div>
-          Backend API
-          <div><progress style="width: 100%;" value="60" max="100"></progress></div>
+          {{projectStatusPage[4].label}}
+          <div><progress style="width: 100%;" value={{projectStatusPage[4].progressValue}} max="100"></progress></div>
          </div>
+
     </div>
   </div>
 

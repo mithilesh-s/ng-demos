@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'social-media-page',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SocialMediaComponent implements OnInit {
 
   constructor() { }
+
+  @Input() socialMediaPage:any
 
   ngOnInit() {
   }

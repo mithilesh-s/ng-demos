@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'project-status-page',
@@ -9,7 +9,12 @@ export class ProjectStatusComponent implements OnInit {
 
   constructor() { }
 
+@Input() projectStatusPage:any
+
   ngOnInit() {
+    console.log("sfdsfsf")
   }
+
+
 
 }

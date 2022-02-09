@@ -1,7 +1,6 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserProfileComponent } from 'src/components/user-profile/user-profile.component';
@@ -16,6 +15,7 @@ import { UserComponent } from 'src/components/user/user.component';
 import { UProfileComponent } from 'src/components/u-profile/u-profile.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { UProfileComponent } from 'src/components/u-profile/u-profile.component'
     NavbarComponent,
     HomeComponent,
     UserComponent,
-    UProfileComponent
+    UProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
