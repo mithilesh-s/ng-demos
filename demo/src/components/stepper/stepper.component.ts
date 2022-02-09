@@ -20,7 +20,9 @@ export class StepperComponent  {
 
   minDate: Date;
   maxDate: Date;
-  isSubmit:boolean=false;
+  isSubmit1:boolean=false;
+  isSubmit2:boolean=false;
+  isSubmit3:boolean=false;
   data1:any
   data2:any
   data3:any
@@ -145,15 +147,17 @@ get graduationPercentage(){
   firstFormSubmit(){
     this.data1=this.firstFormGroup.value
     console.log(this.data1)
-    this.isSubmit=true;
+    this.isSubmit1=true;
   }
   secondFormSubmit(){
     this.data2=this.secondFormGroup.value
     console.log(this.data2)
+    this.isSubmit2=true;
   }
   thirdFormSubmit(){
     this.data3=this.thirdFormGroup.value
     console.log(this.data3)
+    this.isSubmit3=true;
   }
 
 }

@@ -17,8 +17,8 @@
                 <small class="text-danger" *ngIf="userName?.errors?.['pattern']">Enter a valid name</small>
                 <small class="text-danger" *ngIf="userName?.errors?.['forbiddenName']">{{userName?.errors?.['forbiddenName'].value}} is invalid name</small>
             </div>
-            <!-- Showing error method -->
-            <div *ngIf="isSubmit && userName?.errors?.['required']">
+            <!-- Showing error for required here-->
+            <div *ngIf="isSubmit1 && userName?.errors?.['required']">
               <small class="text-danger" *ngIf="userName?.errors?.['required']">Name is required</small>
             </div>
           </div>
@@ -27,19 +27,27 @@
             <label>Email:</label>
             <input type="email" [class.is-invalid]="userEmail?.invalid && userEmail?.touched" class="form-control" formControlName="userEmail" placeholder="Enter Email">
              <div *ngIf="userEmail?.invalid && userEmail?.touched">
-                <small class="text-danger" *ngIf="userEmail?.errors?.['required']">Email is required</small>
+                <!-- <small class="text-danger" *ngIf="userEmail?.errors?.['required']">Email is required</small> -->
                 <small class="text-danger" *ngIf="userEmail?.errors?.['pattern']">Email is invalid</small>
                 <small class="text-danger" *ngIf="userEmail?.errors?.['forbiddenName']">{{userEmail?.errors?.['forbiddenName'].value}} is invalid email</small>
               </div>
+               <!-- Showing error for required here-->
+            <div *ngIf="isSubmit1 && userEmail?.errors?.['required']">
+              <small class="text-danger" *ngIf="userEmail?.errors?.['required']">Email is required</small>
+            </div>
           </div>
 
           <div class="form-group">
             <label>Password:</label>
             <input type="password" [class.is-invalid]="userPassword?.invalid && userPassword?.touched" class="form-control" formControlName="userPassword" placeholder="Enter Password">
             <div *ngIf="userPassword?.invalid && userPassword?.touched">
-              <small class="text-danger" *ngIf="userPassword?.errors?.['required']">Password is required</small>
+              <!-- <small class="text-danger" *ngIf="userPassword?.errors?.['required']">Password is required</small> -->
               <small class="text-danger" *ngIf="userPassword?.errors?.['pattern']">password length should be 8 with one lowecase,one uppercase,number and special character.. </small>
               <small class="text-danger" *ngIf="userPassword?.errors?.['forbiddenName']">{{userPassword?.errors?.['forbiddenName'].value}} is invalid password</small>
+            </div>
+             <!-- Showing error for required here-->
+             <div *ngIf="isSubmit1 && userPassword?.errors?.['required']">
+              <small class="text-danger" *ngIf="userPassword?.errors?.['required']">Password is required</small>
             </div>
           </div>
 
@@ -53,9 +61,13 @@
             <label>Phone:</label>
             <input type="number" [class.is-invalid]="userPhone?.invalid && userPhone?.touched" class="form-control" formControlName="userPhone" placeholder="Enter Phone">
             <div *ngIf="userPhone?.invalid && userPhone?.touched">
-              <small class="text-danger" *ngIf="userPhone?.errors?.['required']">Phone is required</small>
+              <!-- <small class="text-danger" *ngIf="userPhone?.errors?.['required']">Phone is required</small> -->
               <small class="text-danger" *ngIf="userPhone?.errors?.['pattern']">Enter valid indian phone no.</small>
               <small class="text-danger" *ngIf="userPhone?.errors?.['forbiddenName']">{{userPhone?.errors?.['forbiddenName'].value}} is invalid phone</small>
+            </div>
+             <!-- Showing error for required here-->
+             <div *ngIf="isSubmit1 && userPhone?.errors?.['required']">
+              <small class="text-danger" *ngIf="userPhone?.errors?.['required']">Phone is required</small>
             </div>
           </div>
 
@@ -73,7 +85,7 @@
           </div>
 
            <!-- Showing error method -->
-            <div *ngIf="isSubmit && gender?.errors?.['required']">
+            <div *ngIf="isSubmit1 && gender?.errors?.['required']">
               <small class="text-danger" *ngIf="gender?.errors?.['required']">Gender is required</small>
             </div>
 
@@ -121,30 +133,40 @@
              <label>City:</label>
              <input type="text" [class.is-invalid]="userCity?.invalid && userCity?.touched" class="form-control" formControlName="userCity" placeholder="Enter City:">
              <div *ngIf="userCity?.invalid && userCity?.touched">
-                <small class="text-danger" *ngIf="userCity?.errors?.['required']">City is required</small>
+                <!-- <small class="text-danger" *ngIf="userCity?.errors?.['required']">City is required</small> -->
                 <small class="text-danger" *ngIf="userCity?.errors?.['minlength']">City length should be at least 4</small>
                 <small class="text-danger" *ngIf="userCity?.errors?.['pattern']">space not allowed</small>
               </div>
+               <!-- Showing error for required here-->
+            <div *ngIf="isSubmit2 && userCity?.errors?.['required']">
+              <small class="text-danger" *ngIf="userCity?.errors?.['required']">City is required</small>
+            </div>
            </div>
 
            <div class="form-group">
              <label>District:</label>
              <input type="text" [class.is-invalid]="userDistrict?.invalid && userDistrict?.touched" class="form-control" formControlName="userDistrict" placeholder="Enter District">
              <div *ngIf="userDistrict?.invalid && userDistrict?.touched">
-                <small class="text-danger" *ngIf="userDistrict?.errors?.['required']">District is required</small>
+                <!-- <small class="text-danger" *ngIf="userDistrict?.errors?.['required']">District is required</small> -->
                 <small class="text-danger" *ngIf="userDistrict?.errors?.['minlength']">District length should be at least 4</small>
                 <small class="text-danger" *ngIf="userDistrict?.errors?.['pattern']">space not allowed</small>
               </div>
+              <div *ngIf="isSubmit2 && userDistrict?.errors?.['required']">
+                <small class="text-danger" *ngIf="userDistrict?.errors?.['required']">District is required</small>
+              </div>
+
             </div>
 
            <div class="form-group">
              <label>Pincode:</label>
              <input type="number" [class.is-invalid]="userPincode?.invalid && userPincode?.touched" class="form-control" formControlName="userPincode" placeholder="Enter Pincode">
              <div *ngIf="userPincode?.invalid && userPincode?.touched">
-                <small class="text-danger" *ngIf="userPincode?.errors?.['required']">Pincode is required</small>
+                <!-- <small class="text-danger" *ngIf="userPincode?.errors?.['required']">Pincode is required</small> -->
                 <small class="text-danger" *ngIf="userPincode?.errors?.['pattern']">Pincode is invalid</small>
-
                 <small class="text-danger" *ngIf="userPincode?.errors?.['forbiddenName']">{{userPincode?.errors?.['forbiddenName'].value}} is invalid pincode</small>
+            </div>
+            <div *ngIf="isSubmit2 && userPincode?.errors?.['required']">
+              <small class="text-danger" *ngIf="userPincode?.errors?.['required']">Pincode is required</small>
             </div>
            </div>
 
@@ -152,10 +174,13 @@
              <label>State:</label>
              <input type="text" [class.is-invalid]="userState?.invalid && userState?.touched" class="form-control" formControlName="userState" placeholder="Enter State">
              <div *ngIf="userState?.invalid && userState?.touched">
-                <small class="text-danger" *ngIf="userState?.errors?.['required']">State is required</small>
+                <!-- <small class="text-danger" *ngIf="userState?.errors?.['required']">State is required</small> -->
                 <small class="text-danger" *ngIf="userState?.errors?.['minlength']">State length should be at least 4</small>
                 <small class="text-danger" *ngIf="userState?.errors?.['pattern']">space not allowed</small>
              </div>
+             <div *ngIf="isSubmit2 && userState?.errors?.['required']">
+              <small class="text-danger" *ngIf="userState?.errors?.['required']">State is required</small>
+            </div>
            </div>
 
         </form>
@@ -181,17 +206,23 @@
              <label>10th Percentage:</label>
              <input type="number" [class.is-invalid]="user10thPercentage?.invalid && user10thPercentage?.touched" class="form-control" formControlName="user10thPercentage" placeholder="Enter 10th Percentage">
              <div *ngIf="user10thPercentage?.invalid && user10thPercentage?.touched">
-               <small class="text-danger" *ngIf="user10thPercentage?.errors?.['required']">10th Percentage is required</small>
+               <!-- <small class="text-danger" *ngIf="user10thPercentage?.errors?.['required']">10th Percentage is required</small> -->
                <small class="text-danger" *ngIf="user10thPercentage?.errors?.['pattern']">10th Percentage is invalid</small>
              </div>
+             <div *ngIf="isSubmit3 && user10thPercentage?.errors?.['required']">
+              <small class="text-danger" *ngIf="user10thPercentage?.errors?.['required']">10th Percentage is required</small>
+            </div>
            </div>
 
            <div class="form-group">
              <label>12th Percentage:</label>
              <input type="number" [class.is-invalid]="user12thPercentage?.invalid && user12thPercentage?.touched" class="form-control" formControlName="user12thPercentage" placeholder="Enter 10th Percentage">
              <div *ngIf="user12thPercentage?.invalid && user12thPercentage?.touched">
-              <small class="text-danger" *ngIf="user12thPercentage?.errors?.['required']">12th Percentage is required</small>
+              <!-- <small class="text-danger" *ngIf="user12thPercentage?.errors?.['required']">12th Percentage is required</small> -->
               <small class="text-danger" *ngIf="user12thPercentage?.errors?.['pattern']">12th Percentage is invalid</small>
+            </div>
+            <div *ngIf="isSubmit3 && user12thPercentage?.errors?.['required']">
+              <small class="text-danger" *ngIf="user12thPercentage?.errors?.['required']">12th Percentage is required</small>
             </div>
            </div>
 
@@ -199,8 +230,11 @@
              <label>Graduation Percentage:</label>
              <input type="number" [class.is-invalid]="graduationPercentage?.invalid && graduationPercentage?.touched" class="form-control" formControlName="graduationPercentage" placeholder="Enter graduation Percentage">
              <div *ngIf="graduationPercentage?.invalid && graduationPercentage?.touched">
-              <small class="text-danger" *ngIf="graduationPercentage?.errors?.['required']">Graduation percentage is required</small>
+              <!-- <small class="text-danger" *ngIf="graduationPercentage?.errors?.['required']">Graduation percentage is required</small> -->
               <small class="text-danger" *ngIf="graduationPercentage?.errors?.['pattern']">Graduation percentage is invalid</small>
+            </div>
+            <div *ngIf="isSubmit3 && graduationPercentage?.errors?.['required']">
+              <small class="text-danger" *ngIf="graduationPercentage?.errors?.['required']">graduation Percentage is required</small>
             </div>
            </div>
 
