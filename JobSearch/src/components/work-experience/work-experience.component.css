@@ -1,0 +1,29 @@
+.field {
+  margin-left: 100px;
+}
+
+label {
+ display: inline-block;
+ width: 200px;
+ text-align: right;
+}
+
+.basic-info {
+
+ background-color: whitesmoke;
+ width: 57rem;
+ margin-left: 20px;
+ height: 18rem;
+}
+
+.input-style {
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+ transition: 0.3s;
+ border-radius: 5px;
+ border: solid white;
+ border-style: ridge;
+ border-width: 1px;
+}
+.text-area{
+  margin-left: 235px;
+}

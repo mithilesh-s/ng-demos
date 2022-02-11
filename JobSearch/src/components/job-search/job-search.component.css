@@ -1,0 +1,55 @@
+.card {
+  width: 60rem;
+  margin-left: 60px;
+  margin-top: 30px;
+  border: solid lightgray;
+  border-radius: 10px;
+  height: 90rem;
+
+}
+
+#header {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+  color: #fff;
+  padding-left: 20px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+}
+
+.field {
+   margin-left: 100px;
+}
+
+label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+}
+
+.basic-info {
+
+  background-color: whitesmoke;
+  width: 57rem;
+  margin-left: 20px;
+}
+
+.input-style {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+  border-radius: 5px;
+  border: solid white;
+  border-style: ridge;
+  border-width: 1px;
+}
+
+#dropdown1{
+  margin-left: 8px;
+  width: 20rem;
+}
+.buttons{
+  margin-top: 20px;
+  margin-left: 350px;
+}

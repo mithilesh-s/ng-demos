@@ -1,0 +1,107 @@
+<div class="basic-info">
+  <div><h5 style="background-color: lightgray;font-weight: bold;">Basic Information</h5></div>
+    <form [formGroup]="basicInformation" >
+
+      <div class="field mt-3" >
+        <label>Email <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="email?.invalid && email?.touched" class="input-style ml-2" style="width: 20rem;"  type="text" formControlName="email"   />
+        <div class="validation" *ngIf="email?.invalid && email?.touched">
+          <small class="text-danger " *ngIf="email?.errors?.['required']">Email is required</small>
+          <small class="text-danger" *ngIf="email?.errors?.['pattern']">Email is invalid</small>
+          <small class="text-danger" *ngIf="email?.errors?.['forbiddenName']">{{email?.errors?.['forbiddenName'].value}} is invalid email</small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Password <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="password?.invalid && password?.touched" class="input-style ml-2" style="width: 20rem;"  type="password" formControlName="password" />
+        <div class="validation" *ngIf="password?.invalid && password?.touched">
+          <small class="text-danger " *ngIf="password?.errors?.['required']">Password is required</small>
+          <small class="text-danger" *ngIf="password?.errors?.['pattern']">password length should be more than 8 including lowercase,one uppercase,number and special character.. </small>
+          <small class="text-danger" *ngIf="password?.errors?.['forbiddenName']">{{password?.errors?.['forbiddenName'].value}} is invalid password</small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label >Retype Password <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="basicInformation?.errors?.['misMatch']" class="input-style ml-2" style="width: 20rem;"  type="password" formControlName="retypePassword" />
+        <div class="validation">
+          <small class="text-danger " *ngIf="basicInformation?.errors?.['misMatch']">password misMatch</small>
+        </div>
+      </div>
+
+      <div class="field" >
+        <label>First Name <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="firstName?.invalid && firstName?.touched" class=" input-style ml-2" style="width: 20rem;" type="text"  formControlName="firstName"  />
+        <div class="validation" *ngIf="firstName?.invalid && firstName?.touched">
+          <small class="text-danger" *ngIf="firstName?.errors?.['required']">First Name is required</small>
+            <small class="text-danger" *ngIf="firstName?.errors?.['minlength']">First Name length should be at least 4</small>
+            <small class="text-danger" *ngIf="firstName?.errors?.['pattern']">Enter a valid First Name</small>
+            <!-- <small class="text-danger" *ngIf="firstName?.errors?.['forbiddenName']">{{firstName?.errors?.['forbiddenName'].value}} is invalid name</small> -->
+        </div>
+      </div>
+      <div class="field">
+        <label>Last Name <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="lastName?.invalid && lastName?.touched" class="input-style ml-2" style="width: 20rem;"  type="text" formControlName="lastName" />
+        <div class="validation" *ngIf="lastName?.invalid && lastName?.touched">
+          <small class="text-danger" *ngIf="lastName?.errors?.['required']">Last Name is required</small>
+            <small class="text-danger" *ngIf="lastName?.errors?.['minlength']">Last Name length should be at least 4</small>
+            <small class="text-danger" *ngIf="lastName?.errors?.['pattern']">Enter a valid Last Name</small>
+            <!-- <small class="text-danger" *ngIf="lastName?.errors?.['forbiddenName']">{{lastName?.errors?.['forbiddenName'].value}} is invalid name</small> -->
+        </div>
+      </div>
+      <div class="field">
+        <label >Phone Number <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="phone?.invalid && phone?.touched" class="input-style ml-2" style="width: 20rem;"  type="number" value="999-999-9999"  formControlName="phone"/>
+        <div class="validation" *ngIf="phone?.invalid && phone?.touched">
+          <small class="text-danger" *ngIf="phone?.errors?.['required']">Phone is required</small>
+          <small class="text-danger" *ngIf="phone?.errors?.['pattern']">Enter valid indian phone no.</small>
+          <!-- <small class="text-danger" *ngIf="phone?.errors?.['forbiddenName']">{{phone?.errors?.['forbiddenName'].value}} is invalid phone</small> -->
+        </div>
+      </div>
+      <div class="field">
+        <label>Address <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="address?.invalid && address?.touched" class="input-style ml-2" style="width: 20rem;"  type="text"  formControlName="address"/>
+        <div class="validation" *ngIf="address?.invalid && address?.touched">
+          <small class="text-danger" *ngIf="address?.errors?.['required']">Address is required</small>
+            <small class="text-danger" *ngIf="address?.errors?.['minlength']">Address length should be at least 4</small>
+            <small class="text-danger" *ngIf="address?.errors?.['pattern']">Enter a valid Address</small>
+            <!-- <small class="text-danger" *ngIf="address?.errors?.['forbiddenName']">{{address?.errors?.['forbiddenName'].value}} is invalid name</small> -->
+        </div>
+      </div>
+      <div class="field">
+        <label >City <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="city?.invalid && city?.touched" class="input-style ml-2" style="width: 20rem;"  type="text" formControlName="city" />
+        <div class="validation" *ngIf="city?.invalid && city?.touched">
+          <small class="text-danger" *ngIf="city?.errors?.['required']">City is required</small>
+            <small class="text-danger" *ngIf="city?.errors?.['minlength']">City length should be at least 4</small>
+            <small class="text-danger" *ngIf="city?.errors?.['pattern']">Enter a valid City</small>
+            <!-- <small class="text-danger" *ngIf="city?.errors?.['forbiddenName']">{{city?.errors?.['forbiddenName'].value}} is invalid name</small> -->
+        </div>
+      </div>
+
+      <div class="field">
+        <label >Province <span style="color: red;">*</span></label>
+        <select [class.is-invalid]="city?.invalid && city?.touched" id="dropdown1" class="input-style" formControlName="province">
+          <option value="volvo">Alberta</option>
+          <option value="saab">India</option>
+          <option value="opel">US</option>
+          <option value="audi">UAE</option>
+        </select>
+        <div class="validation" *ngIf="province?.invalid && province?.touched">
+          <small class="text-danger" *ngIf="province?.errors?.['required']">Province is required</small>
+        </div>
+      </div>
+      <div class="field">
+        <label >Country <span style="color: red;">*</span></label>
+        <input [class.is-invalid]="country?.invalid && country?.touched" class="input-style ml-2" style="width: 20rem;"  type="text"  formControlName="country"/>
+        <div class="validation" *ngIf="country?.invalid && country?.touched">
+          <small class="text-danger" *ngIf="country?.errors?.['required']">Country is required</small>
+            <small class="text-danger" *ngIf="country?.errors?.['minlength']">Country length should be at least 4</small>
+            <small class="text-danger" *ngIf="country?.errors?.['pattern']">Enter a valid Country</small>
+            <!-- <small class="text-danger" *ngIf="country?.errors?.['forbiddenName']">{{country?.errors?.['forbiddenName'].value}} is invalid name</small> -->
+        </div>
+      </div>
+
+    </form>
+</div>
