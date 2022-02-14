@@ -11,9 +11,9 @@ label {
 .basic-info {
 
  background-color: whitesmoke;
- width: 57rem;
+ width: 98vh;
  margin-left: 20px;
- height: 25rem;
+ height: 100%;
 }
 
 .input-style {

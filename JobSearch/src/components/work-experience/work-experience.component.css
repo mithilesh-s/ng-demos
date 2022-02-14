@@ -8,12 +8,12 @@ label {
  text-align: right;
 }
 
-.basic-info {
+.work-experience {
 
  background-color: whitesmoke;
  width: 57rem;
  margin-left: 20px;
- height: 18rem;
+ height: 100%;
 }
 
 .input-style {
@@ -26,4 +26,7 @@ label {
 }
 .text-area{
   margin-left: 235px;
+}
+.validation{
+  margin-left: 210px;
 }

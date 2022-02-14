@@ -64,7 +64,7 @@
         <input [class.is-invalid]="address?.invalid && address?.touched" class="input-style ml-2" style="width: 20rem;"  type="text"  formControlName="address"/>
         <div class="validation" *ngIf="address?.invalid && address?.touched">
           <small class="text-danger" *ngIf="address?.errors?.['required']">Address is required</small>
-            <small class="text-danger" *ngIf="address?.errors?.['minlength']">Address length should be at least 4</small>
+            <!-- <small class="text-danger" *ngIf="address?.errors?.['minlength']">Address length should be at least 4</small> -->
             <small class="text-danger" *ngIf="address?.errors?.['pattern']">Enter a valid Address</small>
             <!-- <small class="text-danger" *ngIf="address?.errors?.['forbiddenName']">{{address?.errors?.['forbiddenName'].value}} is invalid name</small> -->
         </div>

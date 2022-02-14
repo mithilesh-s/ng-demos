@@ -1,26 +1,32 @@
-<div class="basic-info">
-  <div><h5 style="background-color: lightgray;font-weight: bold;">Work Experience</h5></div>
-    <form >
+<div class="work-experience">
+  <div>
+    <h5 style="background-color: lightgray;font-weight: bold;">Work Experience</h5>
+  </div>
+    <form [formGroup]="workExperience" >
 
       <div class="field mt-3" >
         <label>Employer:</label>
-        <input class=" input-style ml-2" style="width: 20rem;" type="text"   />
+        <input class=" input-style ml-2" style="width: 20rem;" type="text" formControlName="employer"   />
+        <!-- <div class="validation" *ngIf="employer?.invalid && employer?.touched">
+          <small class="text-danger" *ngIf="employer?.errors?.['required']"> employer is required</small>
+        </div> -->
       </div>
       <div class="field">
         <label>Job Title:</label>
-        <input class="input-style ml-2" style="width: 20rem;"  type="text" />
+        <input class="input-style ml-2" style="width: 20rem;"  type="text" formControlName="jobTitle" />
       </div>
 
       <div class="field text-area">
         <span style="vertical-align: top;">Job Duty:</span>
-        <textarea class=" ml-2 input-style" rows="5" cols="40"></textarea>
+        <textarea class=" ml-2 input-style" rows="5" cols="40" formControlName="jobDuty"></textarea>
       </div>
 
       <div class="field">
         <label>Worked Year:</label>
-        <input class="input-style ml-2" style="width: 20rem;"  type="number" />
+        <input class="input-style ml-2" style="width: 20rem;"  type="number" formControlName="workedYear"/>
       </div>
 
 
     </form>
-</div>
+
+  </div>

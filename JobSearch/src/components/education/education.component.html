@@ -1,42 +1,65 @@
 <div class="education">
   <div><h5 style="background-color: lightgray;font-weight: bold;">Education</h5></div>
-    <form >
+    <form [formGroup]="education">
 
       <div class="field mt-3" >
         <label>School <span style="color: red;">*</span></label>
-        <input class=" input-style ml-2" style="width: 20rem;" type="text"   />
+        <input [class.is-invalid]="school?.invalid && school?.touched" class=" input-style ml-2" style="width: 20rem;" type="text" formControlName="school"  />
+        <div class="validation" *ngIf="school?.invalid && school?.touched">
+          <small class="text-danger " *ngIf="school?.errors?.['required']">school name is required</small>
+          <small class="text-danger" *ngIf="school?.errors?.['pattern']">school name is invalid</small>
+          <small class="text-danger" *ngIf="school?.errors?.['minlength']">school name length should be more than 4</small>
+          <small class="text-danger" *ngIf="school?.errors?.['forbiddenName']">{{school?.errors?.['forbiddenName'].value}} is invalid email</small>
+        </div>
       </div>
       <div class="field">
         <label>Program <span style="color: red;">*</span></label>
-        <input class="input-style ml-2" style="width: 20rem;"  type="text" />
+        <input [class.is-invalid]="program?.invalid && program?.touched" class="input-style ml-2" style="width: 20rem;"  type="text" formControlName="program" />
+        <div class="validation" *ngIf="program?.invalid && program?.touched">
+          <small class="text-danger " *ngIf="program?.errors?.['required']">program name is required</small>
+          <small class="text-danger" *ngIf="program?.errors?.['pattern']">program name is invalid</small>
+          <small class="text-danger" *ngIf="program?.errors?.['minlength']">program name length should be more than 4</small>
+          <small class="text-danger" *ngIf="program?.errors?.['forbiddenName']">{{program?.errors?.['forbiddenName'].value}} is invalid email</small>
+        </div>
       </div>
       <div class="field">
         <label >Education Level <span style="color: red;">*</span></label>
-        <select id="dropdown2" class="input-style">
-          <option value="volvo">-select-</option>
-          <option value="volvo">Graduate</option>
-          <option value="saab">Post Graduate</option>
-          <option value="opel">Phd</option>
-          <option value="audi">Diploma</option>
+        <select [class.is-invalid]="program?.invalid && program?.touched" id="dropdown2" class="input-style" formControlName="educationLevel">
+          <option value="">-select-</option>
+          <option value="Graduate">Graduate</option>
+          <option value="Post Graduate">Post Graduate</option>
+          <option value="Phd">Phd</option>
+          <option value="Diploma">Diploma</option>
         </select>
+        <div class="validation" *ngIf="educationLevel?.invalid && educationLevel?.touched">
+          <small class="text-danger" *ngIf="educationLevel?.errors?.['required']">education level is required</small>
+        </div>
       </div>
 
 
      <div class="field">
-      <fieldset  class="border p-3 input-style">
+      <fieldset  class="border p-3 input-style" >
         <legend style="font-size: 18px;">Education Status</legend>
-        <input class="ml-2" type="radio" name="fieldset" value="Graduated"> Graduated <br>
-        <input class="ml-2" type="radio"  name="fieldset"  value="Current Enrolled"> Current Enrolled <br>
-        <input class="ml-2" type="radio"  name="fieldset" value="Did Not Graduate"> Did Not Graduate <br>
+        <input class="ml-2" type="radio"  value="Graduated" formControlName="educationStatus"> Graduated <br>
+        <input class="ml-2" type="radio"    value="Current Enrolled" formControlName="educationStatus"> Current Enrolled <br>
+        <input class="ml-2" type="radio"   value="Did Not Graduate" formControlName="educationStatus"> Did Not Graduate <br>
      </fieldset>
+     <div class="validation" *ngIf="educationStatus?.invalid && educationStatus?.touched">
+      <small class="text-danger" *ngIf="educationStatus?.errors?.['required']">education status is required</small>
+    </div>
      </div>
 
 
 
       <div class="field">
         <label >Graduation Date <span style="color: red;">*</span></label>
-        <input class="input-style ml-2" style="width: 20rem;"  type="text" />
+        <input class="input-style ml-2" formControlName="graduDate" style="width: 20rem;"  type="date"/>
+        <div class="validation" *ngIf="graduDate?.invalid && graduDate?.touched">
+          <small class="text-danger" *ngIf="graduDate?.errors?.['required']">graduation date is required</small>
+        </div>
       </div>
+
+
 
     </form>
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'work-experience-page',
@@ -9,7 +10,13 @@ export class WorkExperienceComponent implements OnInit {
 
   constructor() { }
 
+  @Input() workExperience:FormGroup
+
   ngOnInit() {
   }
+
+  // get employer(){
+  //   return this.workExperience.get('employer');
+  // }
 
 }

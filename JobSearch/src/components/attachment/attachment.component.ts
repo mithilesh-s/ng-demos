@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'attachment-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AttachmentComponent implements OnInit {
 
+@Input() attachments:FormGroup
+
   constructor() { }
 
   ngOnInit() {
   }
-
+get attachment(){
+  return this.attachments.get('attachments');
+}
 }

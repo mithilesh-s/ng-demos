@@ -1,10 +1,13 @@
 <div class="basic-info">
   <div><h5 style="background-color: lightgray;font-weight: bold;">Attachments</h5></div>
-    <form >
+    <form [formGroup]="attachments" >
 
       <div class="field mt-3" >
         <label>Attachments:</label>
-        <input class=" input-style ml-2" style="width: 20rem;" type="file"   />
+        <input class=" input-style ml-2" style="width: 20rem;" type="file" formControlName="attachments"  />
+        <div class="validation" *ngIf="attachment?.invalid && attachment?.touched">
+          <small class="text-danger" *ngIf="attachment?.errors?.['required']">file attachment is required</small>
+        </div>
       </div>
 </form>
 </div>

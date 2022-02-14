@@ -12,7 +12,7 @@ label {
  background-color: whitesmoke;
  width: 57rem;
  margin-left: 20px;
- height: 21rem;
+ height: 100%;
 }
 
 .input-style {
@@ -36,4 +36,7 @@ fieldset{
   background-color: white;
   margin-left: 210px;
   margin-bottom: 5px;
+}
+.validation{
+  margin-left: 210px;
 }

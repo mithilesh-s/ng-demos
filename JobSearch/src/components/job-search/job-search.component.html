@@ -1,26 +1,30 @@
-
 <div class="container">
   <div class="card">
     <h1 id="header">JobSearch.com</h1>
     <h3 class="ml-3 mt-3">Create Your Account</h3>
-    <h6 class="ml-3 mt-3" style="color: red;">* Required information</h6>
-    <basic-information-page></basic-information-page>
-    <br>
-    <education-page></education-page>
-    <br>
-    <work-experience-page></work-experience-page>
-    <br>
-    <attachment-page></attachment-page>
-    <div class="buttons">
-      <button type="reset" class="btn btn-danger">Reset</button>
-      <button type="submit" class="btn btn-danger ml-2">Submit</button>
+    <h6 class="ml-3 mt-3" style="color: red">* Required information</h6>
+    <div>
+      <form [formGroup]="jobSearchFormGroup" (ngSubmit)="jobSearchSubmit()">
+
+        <basic-information-page
+          [basicInformation]="basicInformation"
+        ></basic-information-page>
+        <br />
+        <education-page [education]="education"></education-page>
+        <br />
+        <work-experience-page
+          [workExperience]="workExperience"
+        ></work-experience-page>
+        <br />
+        <attachment-page [attachments]="attachments"></attachment-page>
+
+        <div class="buttons">
+          <button type="reset" class="btn btn-danger">Reset</button>
+          <button type="submit" [disabled]="basicInformation.invalid || education.invalid || workExperience.invalid|| attachments.invalid" class="btn btn-danger ml-2">Submit</button>
+        </div>
+        
+      </form>
     </div>
 
-
-
-
-
-
   </div>
-
 </div>
