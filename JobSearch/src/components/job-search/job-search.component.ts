@@ -85,6 +85,10 @@ export class JobSearchComponent implements OnInit {
        console.log(this.attachments.value)
      }
 
+    //  doReset(){
+    //   this.jobSearchFormGroup.reset();
+    //  }
+
   }
 
 

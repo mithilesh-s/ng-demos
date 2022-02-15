@@ -17,7 +17,7 @@
         <input [class.is-invalid]="password?.invalid && password?.touched" class="input-style ml-2" style="width: 20rem;"  type="password" formControlName="password" />
         <div class="validation" *ngIf="password?.invalid && password?.touched">
           <small class="text-danger " *ngIf="password?.errors?.['required']">Password is required</small>
-          <small class="text-danger" *ngIf="password?.errors?.['pattern']">password length should be more than 8 including lowercase,one uppercase,number and special character.. </small>
+          <small class="text-danger" *ngIf="password?.errors?.['pattern']">password length should be more than 8 including lowercase, uppercase, number and special character.. </small>
           <small class="text-danger" *ngIf="password?.errors?.['forbiddenName']">{{password?.errors?.['forbiddenName'].value}} is invalid password</small>
         </div>
       </div>
@@ -83,10 +83,10 @@
       <div class="field">
         <label >Province <span style="color: red;">*</span></label>
         <select [class.is-invalid]="city?.invalid && city?.touched" id="dropdown1" class="input-style" formControlName="province">
-          <option value="volvo">Alberta</option>
-          <option value="saab">India</option>
-          <option value="opel">US</option>
-          <option value="audi">UAE</option>
+          <option value="MP">MP</option>
+          <option value="UP">UP</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="Delhi">Delhi</option>
         </select>
         <div class="validation" *ngIf="province?.invalid && province?.touched">
           <small class="text-danger" *ngIf="province?.errors?.['required']">Province is required</small>
