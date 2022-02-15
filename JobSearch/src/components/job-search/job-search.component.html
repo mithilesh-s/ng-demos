@@ -20,7 +20,9 @@
 
         <div class="buttons">
           <button type="reset" class="btn btn-danger">Reset</button>
-          <button type="submit" [disabled]="basicInformation.invalid || education.invalid || workExperience.invalid|| attachments.invalid" class="btn btn-danger ml-2">Submit</button>
+          <button type="submit" [disabled]="basicInformation.invalid || education.invalid || workExperience.invalid|| attachments.invalid"
+           class="btn btn-danger ml-2" (click)="openSnackBar()">Submit</button>
+
         </div>
 
       </form>

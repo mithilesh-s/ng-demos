@@ -2,6 +2,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { passwordValidator } from 'src/shared/passwordValidator';
 import { forbiddenUserValidator } from 'src/shared/customUserValidator';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'job-search-page',
@@ -10,9 +11,11 @@ import { forbiddenUserValidator } from 'src/shared/customUserValidator';
 })
 export class JobSearchComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder) { }
-  jobSearchFormGroup!:FormGroup
 
+  constructor(private formBuilder:FormBuilder,private _snackBar: MatSnackBar) { }
+  jobSearchFormGroup!:FormGroup
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
 
   textRegex=/^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$/
@@ -85,10 +88,12 @@ export class JobSearchComponent implements OnInit {
        console.log(this.attachments.value)
      }
 
-    //  doReset(){
-    //   this.jobSearchFormGroup.reset();
-    //  }
-
+    openSnackBar() {
+      this._snackBar.open('Your form is successfully Submitted..', 'OK', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+      });
+    }
   }
 
 

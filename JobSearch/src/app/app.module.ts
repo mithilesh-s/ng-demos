@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
 import { TenthFilterPipe } from 'src/pipes/tenth-filter.pipe';
 import { ElevenFilterPipe } from 'src/pipes/eleven-filter.pipe';
 import { TwelveFilterPipe } from 'src/pipes/twelve-filter.pipe';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -43,7 +45,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatButtonModule
 
   ],
   providers: [],
