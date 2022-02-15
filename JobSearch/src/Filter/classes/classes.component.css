@@ -1,0 +1,24 @@
+
+ol li{
+  /* list-style-type: none; */
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+  font-weight: bold;
+}
+
+@media(min-width:768px)
+{
+  .classes{
+    display: flex;
+    margin-top: 10px;
+
+  }
+}
+
+.form-group{
+  margin-top: 5px;
+}
+
+h4{
+  color: blueviolet;
+}

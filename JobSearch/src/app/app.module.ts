@@ -10,6 +10,15 @@ import { EducationComponent } from 'src/components/education/education.component
 import { WorkExperienceComponent } from 'src/components/work-experience/work-experience.component';
 import { AttachmentComponent } from 'src/components/attachment/attachment.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavComponent } from 'src/Filter/nav/nav.component';
+import { ClassesComponent } from 'src/Filter/classes/classes.component';
+import { FilterPipe } from 'src/pipes/nineth-filter.pipe';
+import { FormsModule } from '@angular/forms';
+import { TenthFilterPipe } from 'src/pipes/tenth-filter.pipe';
+import { ElevenFilterPipe } from 'src/pipes/eleven-filter.pipe';
+import { TwelveFilterPipe } from 'src/pipes/twelve-filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -20,12 +29,21 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EducationComponent,
     WorkExperienceComponent,
     AttachmentComponent,
+    NavComponent,
+    ClassesComponent,
+    FilterPipe,
+    TenthFilterPipe,
+    ElevenFilterPipe,
+    TwelveFilterPipe
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
