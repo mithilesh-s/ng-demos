@@ -20,8 +20,16 @@ import { ElevenFilterPipe } from 'src/pipes/eleven-filter.pipe';
 import { TwelveFilterPipe } from 'src/pipes/twelve-filter.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
-
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { MultiLevelDropdownComponent } from 'src/Filter/multi-level-dropdown/multi-level-dropdown.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { SliderComponent } from 'src/Filter/slider/slider.component';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -36,7 +44,9 @@ import {MatButtonModule} from '@angular/material/button';
     FilterPipe,
     TenthFilterPipe,
     ElevenFilterPipe,
-    TwelveFilterPipe
+    TwelveFilterPipe,
+    MultiLevelDropdownComponent,
+    SliderComponent
 
   ],
   imports: [
@@ -47,7 +57,15 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    BsDropdownModule.forRoot(),
+    MatMenuModule,
+    MatSliderModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatCheckboxModule,
 
   ],
   providers: [],

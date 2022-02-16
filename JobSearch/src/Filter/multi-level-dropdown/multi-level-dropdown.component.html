@@ -1,0 +1,51 @@
+<div class="container mt-1">
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="classes">Classes</button>
+<mat-menu #classes="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="ninethClass">9<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="tenthClass">10<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="eleventhClass">11<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="twelvethClass">12<sup>th</sup>Class</button>
+</mat-menu>
+
+<mat-menu #ninethClass="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="students" >Hindi</button>
+  <button mat-menu-item >English</button>
+  <button mat-menu-item >Maths</button>
+  <button mat-menu-item>Science</button>
+  <button mat-menu-item>Social Science</button>
+  <button mat-menu-item>Sanskrit</button>
+
+</mat-menu>
+
+<mat-menu class="mt-2" #tenthClass="matMenu">
+  <button mat-menu-item >Hindi</button>
+  <button mat-menu-item >English</button>
+  <button mat-menu-item >Maths</button>
+  <button mat-menu-item>Science</button>
+  <button mat-menu-item>Social Science</button>
+  <button mat-menu-item>Sanskrit</button>
+</mat-menu>
+
+<mat-menu class="mt-2" #eleventhClass="matMenu">
+  <button mat-menu-item >Hindi</button>
+  <button mat-menu-item >English</button>
+  <button mat-menu-item >Maths</button>
+  <button mat-menu-item>Physics</button>
+  <button mat-menu-item>Chemisty</button>
+</mat-menu>
+
+<mat-menu class="mt-2" #twelvethClass="matMenu">
+  <button mat-menu-item >Hindi</button>
+  <button mat-menu-item >English</button>
+  <button mat-menu-item >Maths</button>
+  <button mat-menu-item>Physics</button>
+  <button mat-menu-item>Chemisty</button>
+</mat-menu>
+
+<mat-menu  #students="matMenu">
+  <button mat-menu-item >10 Students</button>
+
+</mat-menu>
+
+
+</div>
