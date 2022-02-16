@@ -1,0 +1,30 @@
+ngb-carousel
+{
+  margin-top: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.mat-slider{
+  width: 75%;
+  align-items: center;
+  margin-right: 70px;
+
+
+}
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 40px;
+}
+
+.example-margin {
+  margin: 10px;
+  font-size: 18px;
+}
