@@ -1,6 +1,17 @@
+<label class="mt-3">Choose a class: </label>
+
+<select class="box" [(ngModel)]="dropdownValue" name="slct">
+  <option [ngValue]="undefined" selected>Select the class</option>
+  <option value="9thClass">9<sup>th</sup> Class</option>
+  <option value="10thClass">10<sup>th</sup> Class</option>
+  <option value="11thClass">11<sup>th</sup> Class</option>
+  <option value="12thClass">12<sup>th</sup> Class</option>
+
+</select>
+
 <div class="classes">
 
-  <div class="ml-5">
+  <div *ngIf="ninethClass===dropdownValue" class="ml-5">
    <h4>9<sup>th</sup> Class</h4>
    <div class="form-group">
      <input type="text" class="form-control" [(ngModel)]="subjectName1" placeholder="filter the subjects.">
@@ -9,7 +20,8 @@
     <li *ngFor="let subject of ninethClassSubject | nine_filter:subjectName1">{{subject}}</li>
    </ol>
   </div>
-  <div  class="ml-5">
+
+  <div *ngIf="tenthClass===dropdownValue" class="ml-5">
     <h4>10<sup>th</sup> Class</h4>
     <div class="form-group ">
       <input type="text" class="form-control" [(ngModel)]="subjectName2" placeholder="filter the subjects.">
@@ -18,7 +30,8 @@
      <li *ngFor="let subject of tenthClassSubject | ten_filter:subjectName2">{{subject}}</li>
     </ol>
   </div>
-  <div class="ml-5">
+
+  <div *ngIf="eleventhClass===dropdownValue" class="ml-5">
     <h4>11<sup>th</sup> Class</h4>
     <div class="form-group">
       <input type="text" class="form-control" [(ngModel)]="subjectName3" placeholder="filter the subjects.">
@@ -27,7 +40,8 @@
      <li *ngFor="let subject of eleventhClassSubject | eleven_filter:subjectName3">{{subject}}</li>
     </ol>
   </div>
-  <div class="ml-5">
+
+  <div *ngIf="twelvethClass===dropdownValue" class="ml-5">
     <h4>12<sup>th</sup> Class</h4>
     <div class="form-group">
       <input type="text" class="form-control" [(ngModel)]="subjectName4" placeholder="filter the subjects.">

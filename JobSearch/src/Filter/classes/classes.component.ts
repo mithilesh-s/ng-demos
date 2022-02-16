@@ -34,4 +34,13 @@ export class ClassesComponent implements OnInit {
   eleventhClassSubject = ['Hindi', 'English', 'Maths', 'Physics', 'Chemistry'];
   twelvethClassSubject = ['Hindi', 'English', 'Maths', 'Physics', 'Chemistry'];
 
+  dropdownValue:any;
+  ninethClass="9thClass";
+  tenthClass="10thClass";
+  eleventhClass="11thClass";
+  twelvethClass="12thClass";
+
+adaa="ssss";
+
+
 }
