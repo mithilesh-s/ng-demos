@@ -1,3 +1,4 @@
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -13,11 +14,8 @@ import { AttachmentComponent } from 'src/components/attachment/attachment.compon
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from 'src/Filter/nav/nav.component';
 import { ClassesComponent } from 'src/Filter/classes/classes.component';
-import { FilterPipe } from 'src/pipes/nineth-filter.pipe';
+import { FilterPipe } from 'src/pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
-import { TenthFilterPipe } from 'src/pipes/tenth-filter.pipe';
-import { ElevenFilterPipe } from 'src/pipes/eleven-filter.pipe';
-import { TwelveFilterPipe } from 'src/pipes/twelve-filter.pipe';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -30,6 +28,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ClassDataComponent } from './../Filter/class-data/class-data.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -42,11 +44,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     NavComponent,
     ClassesComponent,
     FilterPipe,
-    TenthFilterPipe,
-    ElevenFilterPipe,
-    TwelveFilterPipe,
-    MultiLevelDropdownComponent,
-    SliderComponent
+   MultiLevelDropdownComponent,
+    SliderComponent,
+    ClassDataComponent,
+
 
   ],
   imports: [

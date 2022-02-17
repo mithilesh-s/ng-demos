@@ -1,43 +1,5 @@
+.classes{
+  display: flex;
+  margin-top: 10px;
 
-ol li{
-  /* list-style-type: none; */
-  font-family: 'Courier New', Courier, monospace;
-  font-style: italic;
-  font-weight: bold;
-}
-
-@media(min-width:768px)
-{
-  .classes{
-    display: flex;
-    margin-top: 10px;
-
-  }
-}
-
-.form-group{
-  margin-top: 5px;
-}
-
-h4{
-  color: blueviolet;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
-}
-
-.box {
-  width: 170px;
-  height: 30px;
-  border: 1px solid #999;
-  font-size: 18px;
-  color: #1c87c9;
-  background-color: #eee;
-  border-radius: 5px;
-  box-shadow: 4px 4px #ccc;
-}
-label{
-  font-weight: bold;
-  font-size: 18px;
-  margin-left: 5px;
-  margin-right:5px
 }

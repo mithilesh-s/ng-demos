@@ -1,54 +1,23 @@
-<label class="mt-3">Choose a class: </label>
 
-<select class="box" [(ngModel)]="dropdownValue" name="slct">
-  <option [ngValue]="undefined" selected>Select the class</option>
-  <option value="9thClass">9<sup>th</sup> Class</option>
-  <option value="10thClass">10<sup>th</sup> Class</option>
-  <option value="11thClass">11<sup>th</sup> Class</option>
-  <option value="12thClass">12<sup>th</sup> Class</option>
-
-</select>
 
 <div class="classes">
 
-  <div *ngIf="ninethClass===dropdownValue" class="ml-5">
-   <h4>9<sup>th</sup> Class</h4>
-   <div class="form-group">
-     <input type="text" class="form-control" [(ngModel)]="subjectName1" placeholder="filter the subjects.">
-   </div>
-   <ol>
-    <li *ngFor="let subject of ninethClassSubject | nine_filter:subjectName1">{{subject}}</li>
-   </ol>
-  </div>
+<app-class-data [classSubject]="ninethClassSubjectData"   [classStandard]="classStandardData[0]"></app-class-data>
+<app-class-data [classSubject]="tenthClassSubjectData"    [classStandard]="classStandardData[1]"></app-class-data>
+<app-class-data [classSubject]="eleventhClassSubjectData" [classStandard]="classStandardData[2]"></app-class-data>
+<app-class-data [classSubject]="twelvethClassSubjectData" [classStandard]="classStandardData[3]"></app-class-data>
 
-  <div *ngIf="tenthClass===dropdownValue" class="ml-5">
-    <h4>10<sup>th</sup> Class</h4>
-    <div class="form-group ">
-      <input type="text" class="form-control" [(ngModel)]="subjectName2" placeholder="filter the subjects.">
-    </div>
-    <ol>
-     <li *ngFor="let subject of tenthClassSubject | ten_filter:subjectName2">{{subject}}</li>
-    </ol>
-  </div>
+</div>
 
-  <div *ngIf="eleventhClass===dropdownValue" class="ml-5">
-    <h4>11<sup>th</sup> Class</h4>
-    <div class="form-group">
-      <input type="text" class="form-control" [(ngModel)]="subjectName3" placeholder="filter the subjects.">
-    </div>
-    <ol>
-     <li *ngFor="let subject of eleventhClassSubject | eleven_filter:subjectName3">{{subject}}</li>
-    </ol>
-  </div>
+<div>
+  <app-multi-level-dropdown
+   [classStandard]="classStandardData"
+   [classSubject9]="ninethClassSubjectData"
+   [classSubject10]="tenthClassSubjectData"
+   [classSubject11]="eleventhClassSubjectData"
+   [classSubject12]="twelvethClassSubjectData"
+   [noOfNinethClassIndexZeroStudents1]="noOfNinethClassIndexZeroStudents"
+   [noOfNinethClassIndexZeroStudentsNames]="noOfNinethClassIndexZeroStudentsName"
 
-  <div *ngIf="twelvethClass===dropdownValue" class="ml-5">
-    <h4>12<sup>th</sup> Class</h4>
-    <div class="form-group">
-      <input type="text" class="form-control" [(ngModel)]="subjectName4" placeholder="filter the subjects.">
-    </div>
-    <ol>
-     <li *ngFor="let subject of twelvethClassSubject | twelve_filter:subjectName4">{{subject}}</li>
-    </ol>
-  </div>
-
+ ></app-multi-level-dropdown>
 </div>

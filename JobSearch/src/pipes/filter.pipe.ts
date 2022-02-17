@@ -1,14 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'eleven_filter'
+  name: 'filter'
 })
-export class ElevenFilterPipe implements PipeTransform {
+export class FilterPipe implements PipeTransform {
 
   transform(value: any, searchTerm: any): any {
     return value.filter(function(search:any){
-      return search.toLowerCase().indexOf(searchTerm.toLowerCase())>-1;
-      alert("sdfh")
+      return search.toLowerCase().indexOf(searchTerm)>-1;
+
     });
   }
+
 }

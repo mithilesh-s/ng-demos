@@ -1,0 +1,16 @@
+
+<div class="ml-5">
+
+  <h4>{{classStandard}}<sup>th</sup> Class</h4>
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="subjectName" placeholder="filter the subjects.">
+  </div>
+  <ng-container *ngIf="(classSubject | filter : subjectName) as result">
+    <ol>
+      <li *ngFor="let item of result">{{item}}</li>
+    </ol>
+    <p *ngIf="result.length === 0"><b>{{subjectName}}</b> not found..</p>
+</ng-container>
+
+ </div>
+

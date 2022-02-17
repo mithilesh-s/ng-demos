@@ -6,41 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./classes.component.css'],
 })
 export class ClassesComponent implements OnInit {
-  subjectName1: string = '';
-  subjectName2: string = '';
-  subjectName3: string = '';
-  subjectName4: string = '';
+
 
   constructor() {}
 
   ngOnInit() {}
 
-  ninethClassSubject = [
-    'Hindi',
-    'English',
-    'Science',
-    'Social Science',
-    'Maths',
-    'Sanskrit',
-  ];
-  tenthClassSubject = [
-    'Hindi',
-    'English',
-    'Science',
-    'Social Science',
-    'Maths',
-    'Sanskrit',
-  ];
-  eleventhClassSubject = ['Hindi', 'English', 'Maths', 'Physics', 'Chemistry'];
-  twelvethClassSubject = ['Hindi', 'English', 'Maths', 'Physics', 'Chemistry'];
-
-  dropdownValue:any;
-  ninethClass="9thClass";
-  tenthClass="10thClass";
-  eleventhClass="11thClass";
-  twelvethClass="12thClass";
-
-adaa="ssss";
+  ninethClassSubjectData = ['Hindi','English','Science','Social Science','Maths','Sanskrit'];
+  tenthClassSubjectData = ['Hindi','English','Science','Social Science','Maths','Sanskrit'];
+  eleventhClassSubjectData = ['Hindi', 'English', 'Maths', 'Physics', 'Chemistry'];
+  twelvethClassSubjectData = ['Hindi', 'English', 'Maths', 'Physics', 'Chemistry'];
+  classStandardData=[9,10,11,12];
+  noOfNinethClassIndexZeroStudents=2;
+  noOfNinethClassIndexZeroStudentsName=['mithilesh','suresh'];
 
 
 }

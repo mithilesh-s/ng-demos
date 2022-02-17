@@ -1,0 +1,27 @@
+
+ol li{
+ 
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.form-group{
+  margin-top: 5px;
+}
+
+h4{
+  color: blueviolet;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+
+
+label{
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right:5px
+}
+
+

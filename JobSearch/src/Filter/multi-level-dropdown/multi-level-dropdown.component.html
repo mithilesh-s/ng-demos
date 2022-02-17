@@ -1,50 +1,45 @@
-<div class="container mt-1">
+<div class="mt-5 ml-5">
   <button mat-raised-button color="primary" [matMenuTriggerFor]="classes">Classes</button>
 <mat-menu #classes="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="ninethClass">9<sup>th</sup>Class</button>
-  <button mat-menu-item [matMenuTriggerFor]="tenthClass">10<sup>th</sup>Class</button>
-  <button mat-menu-item [matMenuTriggerFor]="eleventhClass">11<sup>th</sup>Class</button>
-  <button mat-menu-item [matMenuTriggerFor]="twelvethClass">12<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="ninethClass">{{classStandard[0]}}<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="tenthClass">{{classStandard[1]}}<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="eleventhClass">{{classStandard[2]}}<sup>th</sup>Class</button>
+  <button mat-menu-item [matMenuTriggerFor]="twelvethClass">{{classStandard[3]}}<sup>th</sup>Class</button>
 </mat-menu>
 
-<mat-menu #ninethClass="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="students" >Hindi</button>
-  <button mat-menu-item >English</button>
-  <button mat-menu-item >Maths</button>
-  <button mat-menu-item>Science</button>
-  <button mat-menu-item>Social Science</button>
-  <button mat-menu-item>Sanskrit</button>
 
+
+<mat-menu  #ninethClass="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="noOfNinethClassIndexZeroStudent" >{{classSubject9[0]}}</button>
+  <button mat-menu-item  >{{classSubject9[1]}}</button>
+  <button mat-menu-item  >{{classSubject9[2]}}</button>
+  <button mat-menu-item  >{{classSubject9[3]}}</button>
+  <button mat-menu-item  >{{classSubject9[4]}}</button>
+  <button mat-menu-item  >{{classSubject9[5]}}</button>
 </mat-menu>
 
 <mat-menu class="mt-2" #tenthClass="matMenu">
-  <button mat-menu-item >Hindi</button>
-  <button mat-menu-item >English</button>
-  <button mat-menu-item >Maths</button>
-  <button mat-menu-item>Science</button>
-  <button mat-menu-item>Social Science</button>
-  <button mat-menu-item>Sanskrit</button>
+  <button mat-menu-item *ngFor="let tenthClassSubjects of classSubject10" >{{tenthClassSubjects}}</button>
 </mat-menu>
 
 <mat-menu class="mt-2" #eleventhClass="matMenu">
-  <button mat-menu-item >Hindi</button>
-  <button mat-menu-item >English</button>
-  <button mat-menu-item >Maths</button>
-  <button mat-menu-item>Physics</button>
-  <button mat-menu-item>Chemisty</button>
+  <button mat-menu-item *ngFor="let eleventhClassSubjects of classSubject11" >{{eleventhClassSubjects}}</button>
 </mat-menu>
 
 <mat-menu class="mt-2" #twelvethClass="matMenu">
-  <button mat-menu-item >Hindi</button>
-  <button mat-menu-item >English</button>
-  <button mat-menu-item >Maths</button>
-  <button mat-menu-item>Physics</button>
-  <button mat-menu-item>Chemisty</button>
+  <button mat-menu-item *ngFor="let twelvethClassSubjects of classSubject12" >{{twelvethClassSubjects}}</button>
 </mat-menu>
 
-<mat-menu  #students="matMenu">
-  <button mat-menu-item >10 Students</button>
 
+
+
+
+<mat-menu class="mt-2" #noOfNinethClassIndexZeroStudent="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="noOfNinethClassIndexZeroStudentsName" >{{noOfNinethClassIndexZeroStudents1}}</button>
+</mat-menu>
+
+<mat-menu class="mt-2" #noOfNinethClassIndexZeroStudentsName="matMenu">
+  <button mat-menu-item *ngFor="let noOfNinethClassIndexZeroStudentsName of noOfNinethClassIndexZeroStudentsNames" >{{noOfNinethClassIndexZeroStudentsName}}</button>
 </mat-menu>
 
 
