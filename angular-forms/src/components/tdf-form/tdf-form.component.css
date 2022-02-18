@@ -1,0 +1,16 @@
+label{
+
+  font-weight: bold;
+}
+.form-control:focus {
+
+  border-color: #BDBDC0;
+  -webkit-box-shadow: none;
+   box-shadow: none;
+
+}
+.invalid-lable{
+  color:red;
+}
+
+
