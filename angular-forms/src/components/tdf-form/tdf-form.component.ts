@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-tdf-form',
@@ -7,21 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TdfFormComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _snackBar: MatSnackBar) { }
+  @ViewChild('userForm') userForm!: NgForm;
+  invalidField:boolean=false;
   ngOnInit() {
   }
-  tdfFormSubmit(value:any){
-    console.log(value)
-}
 
-  textRegex=/^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$/
-  phoneRegex=/^[6-9][0-9]{9}$/;
-  emailRegex=/^[A-Za-z._]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}([.][A-za-z]{2,6})?$/;
-  passwordRegex='(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])(?=\\S+$)[A-Za-z\d$@$!%*?&].{8,}'
-  pincodeRegex=/^[1-9][0-9]{5}$/
-  percentageRegex=/^(0*100{1,1}\.?((?<=\.)0*)?%?$)|(^0*\d{0,2}\.?((?<=\.)\d*)?%?)$/
-  addressRegex=/^[a-zA-Z0-9\s,.'-]{3,}$/
-  schoolRegex=/[A-Za-z.]{1,30}/
+  tdfFormSubmit(value:any){
+    if(this.userForm.valid)
+    {
+       this.invalidField=false;
+      console.log(value)
+    }
+    if(this.userForm.invalid)
+    {
+      this.invalidField=true;
+    }
+}
+    horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+    verticalPosition: MatSnackBarVerticalPosition = 'top';
+    durationInSeconds = 3;
+    openSnackBar() {
+      if(this.userForm.valid)
+       {
+          this._snackBar.open('Your form is successfully submitted !!', 'OK', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
+    });
+  }
+}
 
 }
