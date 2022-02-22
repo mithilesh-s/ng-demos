@@ -1,107 +1,64 @@
-<div class="container mt-4">
+<div class="container">
 
 <table class="table table-striped table-bordered">
-  <thead>
-    <tr>
 
-      <th scope="col">First Name</th>
-      <th scope="col">Last Name</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr>
+    <tbody>
+      <tr>
+         <td>
+          <div class="form-group">
+            <input type="text" class="form-control" #firstName  placeholder="Enter First Name" >
+          </div>
+        </td>
+        <td>
+          <div class="form-group">
+            <input type="text" class="form-control" #lastName  placeholder="Enter Last Name" >
+          </div>
+        </td>
+        <td>
+           <button class="btn btn-success btn-sm" (click)="addRow(firstName.value,lastName.value,false)">Add</button>
+        </td>
+      </tr>
 
-      <td>
-        <div class="form-group">
-          <input type="text" class="form-control"  placeholder="Enter First Name">
-        </div>
-      </td>
-      <td>
-        <div class="form-group">
-          <input type="text" class="form-control"  placeholder="Enter First Name">
-        </div>
-      </td>
-      <td>
-         <button class="btn btn-success">Add</button>
-      </td>
+      <tr *ngFor="let details of userDetails; let i=index ">
 
-    </tr>
-    <tr>
-      <td>Subham</td>
-      <td>Kumar</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Mahaveer</td>
-      <td>Sharma</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Tushar</td>
-      <td>Gope</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Ujjawal</td>
-      <td>Kumar</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Kunal</td>
-      <td>Gupta</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Priyanshu</td>
-      <td>Raj</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Divya</td>
-      <td>Raheja</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Ashirvaad</td>
-      <td>Sarangi</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
-    <tr>
-      <td>Ritesh</td>
-      <td>Kumar</td>
-      <td>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger" style="margin-left: 10px;">Delete</button>
-     </td>
-    </tr>
+        <td>
+          <div *ngIf="!details.isEdit">
+            {{details.firstName}}
+          </div>
+          <div *ngIf="details.isEdit" class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="details.firstName"   placeholder="Enter First Name" >
+          </div>
+        </td>
 
-  </tbody>
+        <td>
+          <div *ngIf="!details.isEdit">
+            {{details.lastName}}
+          </div>
+          <div *ngIf="details.isEdit" class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="details.lastName" placeholder="Enter First Name" >
+          </div>
+        </td>
+
+        <td  *ngIf="!details.isEdit" >
+          <button class="btn btn-primary btn-sm" (click)="editRow(i)">Edit</button>
+          <button class="btn btn-danger btn-sm" style="margin-left: 10px;" (click)="deleteRow(i)">Delete</button>
+       </td>
+        <td *ngIf="details.isEdit">
+          <button class="btn  btn-sm"  style="background-color: cornflowerblue;" (click)="saveRow(i)">Save</button>
+          <button class="btn btn-outline-secondary btn-sm" style="margin-left: 10px;" (click)="cancelRow(i)">Cancel</button>
+       </td>
+      </tr>
+
+    </tbody>
+
 </table>
 
 </div>
