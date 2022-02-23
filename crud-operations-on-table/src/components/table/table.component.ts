@@ -73,6 +73,13 @@ export class TableComponent  {
       });
 
   }
+  openSnackBarSave() {
+        this._snackBar.open('Your row data is successfully updated !!', 'OK', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
+      });
+
+  }
 
   editRow(index:number)
   {
@@ -82,6 +89,7 @@ export class TableComponent  {
   saveRow(index:number)
   {
       this.userDetails[index].isEdit=false;
+      this.openSnackBarSave()
 
   }
   cancelRow(index:number)
