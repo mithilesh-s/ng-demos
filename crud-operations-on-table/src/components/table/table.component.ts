@@ -13,7 +13,8 @@ export class TableComponent  {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 3;
-  // isEdit:boolean=false;
+  firstName1!:string;
+  lastName1!:string;
 
 
    userDetails=[
@@ -30,6 +31,7 @@ export class TableComponent  {
     {firstName:"Ritesh",lastName:"Kumar",isEdit:false}
 
   ];
+
  addRow(firstName:string,lastName:string,isEdit:boolean){
     if(firstName.trim().length>0 && lastName.trim().length>0){
            this.userDetails.unshift({firstName,lastName,isEdit})
@@ -39,6 +41,7 @@ export class TableComponent  {
       this.openSnackBarFail()
     }
  }
+
  deleteRow(index:number){
     this.dialogService.openConfirmDialog(this.confirmMessage).afterClosed().subscribe(res=>{
       if(res)
@@ -50,52 +53,59 @@ export class TableComponent  {
 
  }
 
-
-  openSnackBarSuccess() {
-        this._snackBar.open('One row data is successfully added !!', 'OK', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
-      });
-
-  }
-  openSnackBarFail() {
-        this._snackBar.open('You can not add the row with empty data !!', 'OK', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
-      });
-
-  }
-
-  openSnackBarDelete() {
-        this._snackBar.open('Your row data is successfully deleted !!', 'OK', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
-      });
-
-  }
-  openSnackBarSave() {
-        this._snackBar.open('Your row data is successfully updated !!', 'OK', {
-        horizontalPosition: this.horizontalPosition,
-        verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
-      });
-
-  }
-
   editRow(index:number)
   {
     this.userDetails[index].isEdit=true;
+    this.firstName1=this.userDetails[index].firstName;
+    this.lastName1=this.userDetails[index].lastName;
   }
 
   saveRow(index:number)
   {
       this.userDetails[index].isEdit=false;
-      this.openSnackBarSave()
-
+      if(this.userDetails[index].firstName !==this.firstName1 || this.userDetails[index].lastName !==this.lastName1)
+      {
+        this.openSnackBarSave()
+      }
   }
   cancelRow(index:number)
   {
     this.userDetails[index].isEdit=false;
+    this.userDetails[index].firstName=this.firstName1;
+    this.userDetails[index].lastName=this.lastName1;
+
   }
+
+  openSnackBarSuccess() {
+    this._snackBar.open('One row data is successfully added !!', 'OK', {
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
+  });
+
+}
+
+  openSnackBarFail() {
+    this._snackBar.open('You can not add the row with empty data !!', 'OK', {
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
+  });
+
+}
+
+openSnackBarDelete() {
+    this._snackBar.open('Your row data is successfully deleted !!', 'OK', {
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
+  });
+
+ }
+ openSnackBarSave() {
+    this._snackBar.open('Your row data is successfully updated !!', 'OK', {
+    horizontalPosition: this.horizontalPosition,
+    verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
+  });
+
+}
 
 
 
