@@ -10,6 +10,15 @@ import { ViewChildDemoComponent } from 'src/components/view-child-demo/view-chil
 import { ParentComponent } from 'src/components/parent/parent.component';
 import { ChildComponent } from 'src/components/child/child.component';
 import { HostListenerDemoComponent } from 'src/components/host-listener-demo/host-listener-demo.component';
+import { UserComponent } from 'src/Auth/user/user.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SignupComponent } from 'src/Auth/signup/signup.component';
+import { SigninComponent } from 'src/Auth/signin/signin.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 
@@ -22,12 +31,20 @@ import { HostListenerDemoComponent } from 'src/components/host-listener-demo/hos
     ViewChildDemoComponent,
     ParentComponent,
     ChildComponent,
-    HostListenerDemoComponent
+    HostListenerDemoComponent,
+    UserComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
