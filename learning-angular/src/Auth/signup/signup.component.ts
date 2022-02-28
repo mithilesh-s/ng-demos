@@ -5,6 +5,7 @@ import { AuthService } from '../auth.service';
 import { ErrorService } from '../error.service';
 import { ResponseInterface } from '../Response';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder,private _authService:AuthService,private _errorService:ErrorService,private _snackBar:MatSnackBar ) { }
+  constructor(private formBuilder:FormBuilder,private _authService:AuthService,private _errorService:ErrorService,private _snackBar:MatSnackBar,private router:Router ) { }
   signUpForm!:FormGroup;
   error!:string;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -47,6 +48,7 @@ export class SignupComponent implements OnInit {
        authObservable.subscribe(
        res=>{
         console.log(res)
+        this.router.navigate([''])
         this.openSnackBarSuccessSignUp()
         },
        err=>{
@@ -90,7 +92,7 @@ openSnackBarDefault() {
 });
 }
 openSnackBarSuccessSignUp() {
-  this._snackBar.open('You are successfully registered !!', 'OK', {
+  this._snackBar.open('You are successfully registered kindly login here !!', 'OK', {
   horizontalPosition: this.horizontalPosition,
   verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
 });

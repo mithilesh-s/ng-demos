@@ -1,4 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" routerLink="/signup">SignUp</a>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand">SignUp</a>
   <a class="navbar-brand" routerLink="/signin">SignIn</a>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/signup" style="margin-left: 200px;">Angular Authentication</a>
+  <a class="navbar-brand" routerLink="/signin" *ngIf="!isLoggedIn" style="margin-left: auto;">Login</a>
+  <a class="navbar-brand" (click)="logout()" *ngIf="isLoggedIn" style="margin-left: auto;cursor: pointer;">Logout</a>
+
 </nav>

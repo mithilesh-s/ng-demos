@@ -1,11 +1,10 @@
 
 
-
-<div class="container">
+<div class="content">
   <div *ngIf="error" class="alert alert-danger" role="alert">
     <strong>An Error Occurred: </strong>{{error}}
 </div>
-    <h1>Hello User please register yourself !!</h1>
+    <h4>Hello User please register yourself !!</h4>
     <div class="mt-2" >
       <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
@@ -22,7 +21,7 @@
           <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
         </div>
         
-        <div class="d-grid mt-3" style="width: 40%;">
+        <div class="d-grid mt-3" style="width: 70%;">
          
           <button class="btn btn-primary" type="submit">SignUp</button>
          

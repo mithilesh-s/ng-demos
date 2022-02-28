@@ -18,6 +18,7 @@ import { SignupComponent } from 'src/Auth/signup/signup.component';
 import { SigninComponent } from 'src/Auth/signin/signin.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DashboardComponent } from 'src/Auth/dashboard/dashboard.component';
 
 
 
@@ -34,7 +35,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HostListenerDemoComponent,
     UserComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

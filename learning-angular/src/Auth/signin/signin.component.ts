@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { ResponseInterface } from '../Response';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +13,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 })
 export class SigninComponent implements OnInit {
 
-  constructor(private formBuilder:FormBuilder,private authService:AuthService,private _snackBar:MatSnackBar) { }
+  constructor(private formBuilder:FormBuilder,private authService:AuthService,private _snackBar:MatSnackBar,private router:Router) { }
   signInForm!:FormGroup;
   error:any
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -35,21 +36,21 @@ export class SigninComponent implements OnInit {
        let email=this.signInForm.value.email;
        let password=this.signInForm.value.password;
        let authObservable:Observable<ResponseInterface>;
-        
-      
-          authObservable=this.authService.signIn(email,password)
+       authObservable=this.authService.signIn(email,password)
         
 
      authObservable.subscribe(
        res=>{
         console.log(res)
-        this.openSnackBarSuccessSignIn()
+        this.openSnackBarSuccessSignIn();
+        this.router.navigate(['dashboard'])
+        
         },
        err=>{
         console.log(err)
         switch (err.error.error.message) {
           case 'UNKNOWN':
-            this.openSnackBarUnknown()
+            this.openSnackBarUnknown();
             break;
           case 'EMAIL_NOT_FOUND':
             this.openSnackBarEmailNotFound();
@@ -102,7 +103,7 @@ openSnackBarUnknown() {
   });
 }
 openSnackBarSuccessSignIn() {
-    this._snackBar.open('You are no Logged in !!', 'OK', {
+    this._snackBar.open('You are successfully Logged in !!', 'OK', {
     horizontalPosition: this.horizontalPosition,
     verticalPosition: this.verticalPosition, duration: this.durationInSeconds * 1000,
   });
