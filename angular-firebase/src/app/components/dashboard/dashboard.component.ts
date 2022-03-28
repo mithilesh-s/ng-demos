@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private _authService:AuthService) { }
+  constructor(private _authService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +17,10 @@ export class DashboardComponent implements OnInit {
   logout()
   {
     this._authService.logout();
+  }
+  changePassword()
+  {
+      this.router.navigate(['/change-password'])
   }
 
 }
