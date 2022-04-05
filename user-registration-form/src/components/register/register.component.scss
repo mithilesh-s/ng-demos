@@ -1,0 +1,36 @@
+.eye-icon {
+    height     : 25px;
+    margin-left: -25px;
+    z-index    : 2;
+    margin-top : 9px;
+    opacity    : 0.5;
+}
+.form-control.is-invalid {
+    background-image: none;
+}
+
+.model-btn{
+    justify-content:flex-start;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+#confirm-btn{
+   
+    margin-right: 8px;
+}
+#cancel-btn{
+   
+    margin-left: 8px;
+}
+
+.row-data{
+    margin-top: -10px;
+    margin-bottom: -30px;
+}
+a{
+    text-decoration: none;
+}
+
+
