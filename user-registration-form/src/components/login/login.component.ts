@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/dashboard']);
       },
       (err)=>{
-        this.toasterService.error(err.message);
+        this.toasterService.error(err.message,"Hello",{positionClass: 'toast-top-center'} );
       }
     )
   }

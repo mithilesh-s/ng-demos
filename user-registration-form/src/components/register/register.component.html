@@ -54,7 +54,7 @@
             </div>
             <div *ngIf="(password?.dirty ||isInvalidRegisterForm || password?.touched)&&password?.invalid">
               <small class="text-danger" *ngIf="password?.errors?.['required']">Password is required</small>
-              <small class="text-danger" *ngIf="password?.errors?.['pattern']">Password is not valid</small>
+              <small class="text-danger" *ngIf="password?.errors?.['pattern']">Password length should be atleast 8 with at least one upper case, lower case, numeric and special character. </small>
             </div>
 
           </div>
@@ -109,7 +109,7 @@
             <label><b><span class="text-danger">*</span> Country:</b></label>
             <select [class.is-invalid]="(country?.dirty ||isInvalidRegisterForm || country?.touched)&&country?.invalid"
               class="form-control" formControlName="country" (change)="onCountryChange($event)">
-              <option Value="">Choose country</option>
+              <option value="">Choose country</option>
               <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
             </select>
 
@@ -123,7 +123,7 @@
             <label><b><span class="text-danger">*</span> State:</b></label>
             <select [class.is-invalid]="(state?.dirty ||isInvalidRegisterForm || state?.touched)&&state?.invalid"
               class="form-control" formControlName="state" (change)="onStateChange($event)">
-              <option Value="">Choose state</option>
+              <option value="">Choose state</option>
               <option [value]='state.name' *ngFor="let state of states">{{state.name}}</option>
             </select>
             <div *ngIf="(state?.dirty ||isInvalidRegisterForm || state?.touched)&&state?.invalid">
@@ -134,7 +134,7 @@
             <label><b><span class="text-danger">*</span> City:</b></label>
             <select [class.is-invalid]="(city?.dirty ||isInvalidRegisterForm || city?.touched)&&city?.invalid" class="form-control"
               formControlName="city">
-              <option Value="">Choose city</option>
+              <option value="">Choose city</option>
               <option [value]="city.name" *ngFor="let city of cities">{{city.name}}</option>
             </select>
             <div *ngIf="(city?.dirty ||isInvalidRegisterForm || city?.touched)&&city?.invalid">
@@ -176,7 +176,26 @@
 
                 <!-- showing the form data in the model -->
 
-                <div  class="row row-data">
+              <div class="text-center"  *ngIf="isEditable">
+                <h5 *ngIf="!showUpdatedData">Please edit your data</h5>
+              </div>
+  
+              <div  id="editInfo" *ngIf="isEditable">
+                <div *ngIf="!isFullNameEditable" >
+                  <hr>
+                </div>
+              </div>
+
+        
+
+                <div *ngIf="!isFullNameEditable" class="row row-data">
+                   <div class="col-4">
+                    <p><b>Full Name:</b><p>
+                   </div>
+                   <div class="col-7"><p><span>{{registerFormGroup.value.firstName+' '+ registerFormGroup.value.lastName}}</span></p></div>
+                   <div class="col-1"><i *ngIf="isEditable" (click)="editFullName()" class="fa-solid fa-pencil"></i></div>
+                </div>
+                <div *ngIf="showUpdatedData" class="row row-data">
                    <div class="col-4">
                     <p><b>Full Name:</b><p>
                    </div>
@@ -330,7 +349,8 @@
                     <select [class.is-invalid]="(editableCountry?.dirty ||isInvalidEditableRegisterForm || editableCountry?.touched)&&editableCountry?.invalid"
                       class="form-control" formControlName="editableCountry" (change)="onEditableCountryChange($event)">
                       <option value="">Choose country</option>
-                      <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
+                      
+                      <option [value]="country.name" *ngFor="let country of editableCountries">{{country.name}}</option>
                     </select>
         
                     <div *ngIf="(editableCountry?.dirty ||isInvalidEditableRegisterForm || editableCountry?.touched)&&editableCountry?.invalid">
@@ -343,8 +363,11 @@
                     <label><b>State:</b></label>
                     <select [class.is-invalid]="(editableState?.dirty ||isInvalidEditableRegisterForm || editableState?.touched)&&editableState?.invalid"
                       class="form-control" formControlName="editableState" (change)="onEditableStateChange($event)">
-                      <option value="">Choose state</option>
-                      <option [value]='state.name' *ngFor="let state of states">{{state.name}}</option>
+                      
+                      <ng-container *ngIf="!editableStates">
+                        <option [value]='registerFormGroup.value.state'>{{registerFormGroup.value.state}}</option>
+                      </ng-container>
+                      <option [value]='state.name' *ngFor="let state of editableStates">{{state.name}}</option>
                     </select>
                     <div *ngIf="(editableState?.dirty ||isInvalidEditableRegisterForm || editableState?.touched)&&editableState?.invalid">
                       <small class="text-danger" *ngIf="editableState?.errors?.['required']">State is required</small>
@@ -359,7 +382,10 @@
                   <select [class.is-invalid]="(editableCity?.dirty ||isInvalidEditableRegisterForm || editableCity?.touched)&&editableCity?.invalid" class="form-control"
                     formControlName="editableCity">
                     <option value="">Choose city</option>
-                    <option [value]="city.name" *ngFor="let city of cities">{{city.name}}</option>
+                    <ng-container *ngIf="!editableCities">
+                      <option [value]='registerFormGroup.value.city'>{{registerFormGroup.value.city}}</option>
+                    </ng-container>
+                    <option [value]="city.name" *ngFor="let city of editableCities">{{city.name}}</option>
                   </select>
 
                   <div *ngIf="(editableCity?.dirty ||isInvalidEditableRegisterForm || editableCity?.touched)&&editableCity?.invalid">
@@ -379,7 +405,7 @@
                 </div>
               </div>
         
-              <button *ngIf="isEditable" type="submit" class="btn btn-success"  id="confirm-btn">Confirm</button>
+              <button *ngIf="isEditable" type="submit" class="btn btn-success" (click)="editConfirmBtn()" id="confirm-btn">Confirm</button>
               <button *ngIf="isEditable" type="button" class="btn btn-primary" id="cancel-btn" (click)="onCloseHandled()">Cancel</button>
               </form>
               </div>

@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   countries!: { id: number, name: string }[]
   states!: { id: number, country_name: string, name: string }[]
   cities!: { id: number, state_name: string,country_name:string, name: string }[]
-  editableContries!: { id: number, name: string }[]
+  editableCountries!: { id: number, name: string }[]
   editableStates!: { id: number, country_name: string, name: string }[]
   editableCities!: { id: number, state_name: string,country_name:string, name: string }[]
   isInvalidRegisterForm = false
@@ -128,18 +128,18 @@ export class RegisterComponent implements OnInit {
     // formgroup for register form
 
     this.registerFormGroup = this.formbuilder.group({
-      firstName: ['', [Validators.required, Validators.pattern(this.textRegex)]],
-      lastName: ['', [Validators.required, Validators.pattern(this.textRegex)]],
-      email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
-      password: ['', [Validators.required, Validators.pattern(this.passwordRegex)]],
-      confirmPassword: ['', [Validators.required]],
+      firstName: ['mithilesh', [Validators.required, Validators.pattern(this.textRegex)]],
+      lastName: ['shah', [Validators.required, Validators.pattern(this.textRegex)]],
+      email: ['mithilesh@gmail.com', [Validators.required, Validators.pattern(this.emailRegex)]],
+      password: ['Hello@123', [Validators.required, Validators.pattern(this.passwordRegex)]],
+      confirmPassword: ['Hello@123', [Validators.required]],
       dob: ['', [Validators.required]],
-      address1: ['', [Validators.required, Validators.pattern(this.addressRegex)]],
-      address2: ['', [Validators.pattern(this.addressRegex)]],
+      address1: ['sddd', [Validators.required, Validators.pattern(this.addressRegex)]],
+      address2: ['ddd', [Validators.pattern(this.addressRegex)]],
       country: ['', [Validators.required]],
       state: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      pincode: ['', [Validators.required, Validators.pattern(this.pincodeRegex)]],
+      pincode: ['486886', [Validators.required, Validators.pattern(this.pincodeRegex)]],
     },{ validator: passwordValidator })
 
 
@@ -161,6 +161,7 @@ export class RegisterComponent implements OnInit {
 
     // getting the country data from the dropdown data service
     this.countries = this._dropdownDataService.getCountries();
+    this.editableCountries = this._dropdownDataService.getCountries();
   
    }
 
@@ -224,13 +225,16 @@ export class RegisterComponent implements OnInit {
   // getting the dropdown data from the dropdown data service for register form
 
   onCountryChange(country: any) {
-    console.log("Print")
+ 
     this.states = this._dropdownDataService.getStates().filter((x) => x.country_name == country.target.value);
-    this.cities = this._dropdownDataService.getCities().filter((x) => x.country_name == country.target.value);
-   
-
-  
-
+    this.cities = []
+    
+    if(country.target.value==this.countries[country.target["selectedIndex"] - 1].name){
+        this.registerFormGroup.patchValue({
+          state:'',
+          city:''
+        })
+      }
   }
 
   onStateChange(state: any) {
@@ -242,14 +246,14 @@ export class RegisterComponent implements OnInit {
 
   onEditableCountryChange(country: any) {
    
-    this.states = this._dropdownDataService.getStates().filter((x) => x.country_name == country.target.value);
-    this.cities = this._dropdownDataService.getCities().filter((x) => x.country_name == country.target.value);
+    this.editableStates = this._dropdownDataService.getStates().filter((x) => x.country_name == country.target.value);
+    this.editableCities = this._dropdownDataService.getCities().filter((x) => x.country_name == country.target.value);
  
   }
 
   onEditableStateChange(state: any) {
 
-    this.cities = this._dropdownDataService.getCities().filter((x) => x.state_name == state.target.value);
+    this.editableCities = this._dropdownDataService.getCities().filter((x) => x.state_name == state.target.value);
    
 
   }
@@ -359,21 +363,44 @@ export class RegisterComponent implements OnInit {
   // setting the email ,dob and password in the local storage on the confirm button
 
     onConfirmRegistrationFormButton(){
+      localStorage.setItem('firstName',this.registerFormGroup.value.firstName)
+      localStorage.setItem('lastName',this.registerFormGroup.value.lastName)
       localStorage.setItem('email',this.registerFormGroup.value.email)
-      localStorage.setItem('dob',this.registerFormGroup.value.dob)
       localStorage.setItem('password',this.registerFormGroup.value.password)
+      localStorage.setItem('dob',this.registerFormGroup.value.dob)
+      localStorage.setItem('address1',this.registerFormGroup.value.address1)
+      localStorage.setItem('address2',this.registerFormGroup.value.address2)
+      localStorage.setItem('country',this.registerFormGroup.value.country)
+      localStorage.setItem('state',this.registerFormGroup.value.state)
+      localStorage.setItem('city',this.registerFormGroup.value.city)
+      localStorage.setItem('pincode',this.registerFormGroup.value.pincode)
       this.toasterService.success('Successfully Registerd.')
       this.router.navigate(['/login'])
 
     }
      // updating the email ,dob and password in the local storage on the confirm button after editing the date in the model
     onconfirmEditableRegistrationForm(){
+      localStorage.setItem('firstName',this.registerFormGroup.value.firstName)
+      localStorage.setItem('lastName',this.registerFormGroup.value.lastName)
       localStorage.setItem('email',this.registerFormGroup.value.email)
-      localStorage.setItem('dob',this.registerFormGroup.value.dob)
       localStorage.setItem('password',this.registerFormGroup.value.password)
+      localStorage.setItem('dob',this.registerFormGroup.value.dob)
+      localStorage.setItem('address1',this.registerFormGroup.value.address1)
+      localStorage.setItem('address2',this.registerFormGroup.value.address2)
+      localStorage.setItem('country',this.registerFormGroup.value.country)
+      localStorage.setItem('state',this.registerFormGroup.value.state)
+      localStorage.setItem('city',this.registerFormGroup.value.city)
+      localStorage.setItem('pincode',this.registerFormGroup.value.pincode)
       this.toasterService.success('Successfully Updated.')
       this.router.navigate(['/login'])
 
     }
+    editConfirmBtn(){
+      this.isFullNameEditable=true;
+    }
+
+
+    
+   
 
 }

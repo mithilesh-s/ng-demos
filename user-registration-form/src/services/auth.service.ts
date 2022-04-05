@@ -43,7 +43,7 @@ export class AuthService {
   login(userName:string, password : string): Observable<any> {
     if ((userName == this.serviceEmail && password == this.servicePassword) || (userName === this.serviceDob && password === this.servicePassword)) {
       this.setToken('mithilesh ka token');
-      this.toasterService.success("Successfully Loggedin")
+      this.toasterService.success("Successfully Logged in")
 
       return of({ email: this.serviceEmail, password: this.servicePassword });
     }

@@ -23,7 +23,10 @@ import { DashboardComponent } from 'src/components/dashboard/dashboard.component
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000
+      
+    }),
     BrowserAnimationsModule
   ],
   providers: [],
