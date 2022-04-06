@@ -349,7 +349,6 @@
                     <select [class.is-invalid]="(editableCountry?.dirty ||isInvalidEditableRegisterForm || editableCountry?.touched)&&editableCountry?.invalid"
                       class="form-control" formControlName="editableCountry" (change)="onEditableCountryChange($event)">
                       <option value="">Choose country</option>
-                      
                       <option [value]="country.name" *ngFor="let country of editableCountries">{{country.name}}</option>
                     </select>
         

@@ -11,31 +11,36 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router:Router,private toasterService:ToastrService) { }
 
-  firstName:any=''
-  lastName:any=''
-  email:any=''
-  password:any=''
-  dob:any=''
-  address1:any=''
-  address2:any=''
-  country:any=''
-  state:any=''
-  city:any=''
-  pincode:any=''
+  firstName:string=''
+  lastName:string=''
+  email:string=''
+  password:string=''
+  dob:string=''
+  address1:string=''
+  address2:string=''
+  country:string=''
+  state:string=''
+  city:string=''
+  pincode:string=''
   
   ngOnInit(): void {
 
-     this.firstName=localStorage.getItem('firstName')
-     this.lastName=localStorage.getItem('lastName')
-     this.email=localStorage.getItem('email')
-     this.password=localStorage.getItem('password')
-     this.dob=localStorage.getItem('dob')
-     this.address1=localStorage.getItem('address1')
-     this.address2=localStorage.getItem('address2')
-     this.country=localStorage.getItem('country')
-     this.state=localStorage.getItem('state')
-     this.city=localStorage.getItem('city')
-     this.pincode=localStorage.getItem('pincode')
+
+
+    const dashboardData=JSON.parse(localStorage.getItem('register-form-data') ||"{}")
+    
+
+     this.firstName=dashboardData.firstName
+     this.lastName=dashboardData.lastName
+     this.email=dashboardData.email
+     this.password=dashboardData.password
+     this.dob=dashboardData.dob
+     this.address1=dashboardData.address1
+     this.address2=dashboardData.address2
+     this.country=dashboardData.country
+     this.state=dashboardData.state
+     this.city=dashboardData.city
+     this.pincode=dashboardData.pincode
   }
 
   logout(){

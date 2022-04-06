@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   loginEmail:any="";
   loginPassword:any="";
   loginDob:any="";
+  
 
 
 
@@ -26,10 +27,10 @@ export class LoginComponent implements OnInit {
       loginPassword:['',[Validators.required]]
     })
 
-
-    this.loginEmail = localStorage.getItem('email');
-    this.loginPassword = localStorage.getItem('password');
-    this.loginDob = localStorage.getItem('dob');
+    const loginData=JSON.parse(localStorage.getItem('register-form-data') ||"{}")
+    this.loginEmail = loginData.email
+    this.loginPassword = loginData.password
+    this.loginDob = loginData.dob
     this.authService.getDataFromLocalStorage(this.loginEmail, this.loginPassword,this.loginDob);
     console.log( this.loginEmail,this.loginPassword,this.loginDob )
   }

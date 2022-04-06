@@ -5,6 +5,7 @@ import { DropdownDataService } from 'src/services/dropdown-data.service';
 import { passwordValidator } from 'src/shared/PasswordValidator';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { City, Country, State } from 'src/interfaces/DropdownDataInterface';
 
 @Component({
   selector: 'app-register',
@@ -20,14 +21,14 @@ export class RegisterComponent implements OnInit {
 
   registerFormGroup!: FormGroup
   editableRegisterFormGroup!: FormGroup
-  countries!: { id: number, name: string }[]
-  states!: { id: number, country_name: string, name: string }[]
-  cities!: { id: number, state_name: string,country_name:string, name: string }[]
-  editableCountries!: { id: number, name: string }[]
-  editableStates!: { id: number, country_name: string, name: string }[]
-  editableCities!: { id: number, state_name: string,country_name:string, name: string }[]
-  isInvalidRegisterForm = false
-  isInvalidEditableRegisterForm = false
+  countries!: Country
+  states!: State
+  cities!: City
+  editableCountries!:Country
+  editableStates!: State
+  editableCities!: City
+  isInvalidRegisterForm:boolean = false
+  isInvalidEditableRegisterForm:boolean = false
   hiddenPassword: boolean = true;
   hiddenConfirmPassword: boolean = true;
   isEditable:boolean=false;
@@ -38,7 +39,9 @@ export class RegisterComponent implements OnInit {
 
   // regex for the fields
  
-  textRegex: RegExp = /^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$/
+  // textRegex: RegExp = /^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$/
+  textRegex: RegExp = /^([A-Za-z]+)$/
+
   emailRegex: RegExp = /^[A-Za-z._]{3,}@[A-Za-z]{3,5}[.]{1}[A-Za-z]{1,3}$/
   pincodeRegex: RegExp = /^[4-9][0-9]{5}$/  
   addressRegex: RegExp = /^([a-zA-Z0-9,.'-]+ )+[a-zA-Z0-9,.'-]+$|^[a-zA-Z0-9,.'-]+$/
@@ -128,18 +131,18 @@ export class RegisterComponent implements OnInit {
     // formgroup for register form
 
     this.registerFormGroup = this.formbuilder.group({
-      firstName: ['mithilesh', [Validators.required, Validators.pattern(this.textRegex)]],
-      lastName: ['shah', [Validators.required, Validators.pattern(this.textRegex)]],
-      email: ['mithilesh@gmail.com', [Validators.required, Validators.pattern(this.emailRegex)]],
-      password: ['Hello@123', [Validators.required, Validators.pattern(this.passwordRegex)]],
-      confirmPassword: ['Hello@123', [Validators.required]],
+      firstName: ['', [Validators.required, Validators.pattern(this.textRegex)]],
+      lastName: ['', [Validators.required, Validators.pattern(this.textRegex)]],
+      email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
+      password: ['', [Validators.required, Validators.pattern(this.passwordRegex)]],
+      confirmPassword: ['', [Validators.required]],
       dob: ['', [Validators.required]],
-      address1: ['sddd', [Validators.required, Validators.pattern(this.addressRegex)]],
-      address2: ['ddd', [Validators.pattern(this.addressRegex)]],
+      address1: ['', [Validators.required, Validators.pattern(this.addressRegex)]],
+      address2: ['', [Validators.pattern(this.addressRegex)]],
       country: ['', [Validators.required]],
       state: ['', [Validators.required]],
       city: ['', [Validators.required]],
-      pincode: ['486886', [Validators.required, Validators.pattern(this.pincodeRegex)]],
+      pincode: ['', [Validators.required, Validators.pattern(this.pincodeRegex)]],
     },{ validator: passwordValidator })
 
 
@@ -212,11 +215,7 @@ export class RegisterComponent implements OnInit {
       this.registerFormGroup.value.state=this.editableRegisterFormGroup.value.editableState;
       this.registerFormGroup.value.city=this.editableRegisterFormGroup.value.editableCity;
       this.registerFormGroup.value.pincode=this.editableRegisterFormGroup.value.editablePincode;
-
- 
-     
-
-    }
+  }
 
   }
 
@@ -363,34 +362,15 @@ export class RegisterComponent implements OnInit {
   // setting the email ,dob and password in the local storage on the confirm button
 
     onConfirmRegistrationFormButton(){
-      localStorage.setItem('firstName',this.registerFormGroup.value.firstName)
-      localStorage.setItem('lastName',this.registerFormGroup.value.lastName)
-      localStorage.setItem('email',this.registerFormGroup.value.email)
-      localStorage.setItem('password',this.registerFormGroup.value.password)
-      localStorage.setItem('dob',this.registerFormGroup.value.dob)
-      localStorage.setItem('address1',this.registerFormGroup.value.address1)
-      localStorage.setItem('address2',this.registerFormGroup.value.address2)
-      localStorage.setItem('country',this.registerFormGroup.value.country)
-      localStorage.setItem('state',this.registerFormGroup.value.state)
-      localStorage.setItem('city',this.registerFormGroup.value.city)
-      localStorage.setItem('pincode',this.registerFormGroup.value.pincode)
+
+    localStorage.setItem('register-form-data',JSON.stringify(this.registerFormGroup.value))
       this.toasterService.success('Successfully Registerd.')
       this.router.navigate(['/login'])
 
     }
      // updating the email ,dob and password in the local storage on the confirm button after editing the date in the model
     onconfirmEditableRegistrationForm(){
-      localStorage.setItem('firstName',this.registerFormGroup.value.firstName)
-      localStorage.setItem('lastName',this.registerFormGroup.value.lastName)
-      localStorage.setItem('email',this.registerFormGroup.value.email)
-      localStorage.setItem('password',this.registerFormGroup.value.password)
-      localStorage.setItem('dob',this.registerFormGroup.value.dob)
-      localStorage.setItem('address1',this.registerFormGroup.value.address1)
-      localStorage.setItem('address2',this.registerFormGroup.value.address2)
-      localStorage.setItem('country',this.registerFormGroup.value.country)
-      localStorage.setItem('state',this.registerFormGroup.value.state)
-      localStorage.setItem('city',this.registerFormGroup.value.city)
-      localStorage.setItem('pincode',this.registerFormGroup.value.pincode)
+      localStorage.setItem('register-form-data',JSON.stringify(this.registerFormGroup.value))
       this.toasterService.success('Successfully Updated.')
       this.router.navigate(['/login'])
 
