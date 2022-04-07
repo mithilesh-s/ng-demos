@@ -12,8 +12,7 @@
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> First Name:</b></label>
             <input type="text" class="form-control" formControlName="firstName" placeholder="Enter your first name">
-              <!-- <app-error controlName="firstName" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">First name is required.</app-error>
-              <app-error controlName="firstName"  error="pattern">First name is not valid.</app-error> -->
+      
               <app-error controlName="firstName" [conditonalError]="(registerFormGroup.controls['firstName'].touched ||registerFormGroup.controls['firstName'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['firstName'].invalid"  error="required">First name is required.</app-error>
               <app-error controlName="firstName" [conditonalError]="(registerFormGroup.controls['firstName'].touched ||registerFormGroup.controls['firstName'].dirty ||isInvalidRegisterForm)
@@ -22,8 +21,7 @@
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> Last Name:</b></label>
             <input type="text" class="form-control" formControlName="lastName" placeholder="Enter your last name">
-              <!-- <app-error controlName="lastName" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Last name is required.</app-error>
-              <app-error controlName="lastName"  error="pattern">Last name is not valid.</app-error> -->
+  
               <app-error controlName="lastName" [conditonalError]="(registerFormGroup.controls['lastName'].touched ||registerFormGroup.controls['lastName'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['lastName'].invalid"  error="required">Last name is required.</app-error>
               <app-error controlName="lastName" [conditonalError]="(registerFormGroup.controls['lastName'].touched ||registerFormGroup.controls['lastName'].dirty ||isInvalidRegisterForm)
@@ -33,8 +31,7 @@
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> Email:</b></label>
             <input type="email" class="form-control" formControlName="email" placeholder="Enter your email">
-              <!-- <app-error controlName="email" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Email is required.</app-error>
-              <app-error controlName="email"  error="pattern">Email is not valid.</app-error> -->
+             
               <app-error controlName="email" [conditonalError]="(registerFormGroup.controls['email'].touched ||registerFormGroup.controls['email'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['email'].invalid"  error="required">Email is required.</app-error>
               <app-error controlName="email" [conditonalError]="(registerFormGroup.controls['email'].touched ||registerFormGroup.controls['email'].dirty ||isInvalidRegisterForm)
@@ -52,8 +49,7 @@
               <i class="fas fa-eye eye-icon" *ngIf="!hiddenPassword" (click)="hidePassword()"></i>
               <i class="fas fa-eye-slash eye-icon" *ngIf="hiddenPassword" (click)="showPassword()"></i>
             </div>
-              <!-- <app-error controlName="password" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Password is required</app-error>
-              <app-error controlName="password"  error="pattern">Password length should be atleast 8 with at least one upper case, lower case, numeric and special character.</app-error> -->
+           
               <app-error controlName="password" [conditonalError]="(registerFormGroup.controls['password'].touched ||registerFormGroup.controls['password'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['password'].invalid"  error="required">Password is required.</app-error>
               <app-error controlName="password" [conditonalError]="(registerFormGroup.controls['password'].touched ||registerFormGroup.controls['password'].dirty ||isInvalidRegisterForm)
@@ -79,7 +75,7 @@
             <label class="form-label"><b><span class="text-danger">*</span> Date of Birth:</b></label>
             <input  [max]="changeDateFormatToCurrentDate()" type="date" class="form-control" formControlName="dob">
             
-            <!-- <app-error controlName="dob" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Date of birth is required</app-error> -->
+            
             <app-error controlName="dob" [conditonalError]="(registerFormGroup.controls['dob'].touched ||registerFormGroup.controls['dob'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['dob'].invalid"  error="required">Date of birth is required.</app-error>
             
@@ -91,8 +87,7 @@
             <label class="form-label"><b><span class="text-danger">*</span> Address 1:</b></label>
             <input type="text" class="form-control" formControlName="address1" placeholder="Enter your current address">
         
-              <!-- <app-error controlName="address1" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Address 1 is required.</app-error>
-              <app-error controlName="address1"  error="pattern">Address 1 is not valid.</app-error> -->
+             
               <app-error controlName="address1" [conditonalError]="(registerFormGroup.controls['address1'].touched ||registerFormGroup.controls['address1'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['address1'].invalid"  error="required">Address 1 is required.</app-error>
               <app-error controlName="address1" [conditonalError]="(registerFormGroup.controls['address1'].touched ||registerFormGroup.controls['address1'].dirty ||isInvalidRegisterForm)
@@ -103,7 +98,7 @@
             <label class="form-label"><b>Address 2:</b></label>
             <input 
               type="text" class="form-control" formControlName="address2" placeholder="Enter your permanent address">
-              <!-- <app-error controlName="address2"  error="pattern">Address 2 is not valid.</app-error> -->
+             
               <app-error controlName="address2" [conditonalError]="(registerFormGroup.controls['address2'].touched ||registerFormGroup.controls['address2'].dirty ||isInvalidRegisterForm)
               && registerFormGroup.controls['address2'].invalid"  error="pattern">Address 2 is not valid.</app-error>
           </div>
@@ -117,7 +112,7 @@
               <option value="">Choose country</option>
               <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
             </select>
-            <!-- <app-error controlName="country" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Country is required.</app-error> -->
+            
             <app-error controlName="country" [conditonalError]="(registerFormGroup.controls['country'].touched ||registerFormGroup.controls['country'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['country'].invalid"  error="required">Country name is required.</app-error>
           </div>
@@ -129,7 +124,7 @@
               <option value="">Choose state</option>
               <option [value]='state.name' *ngFor="let state of states">{{state.name}}</option>
             </select>
-            <!-- <app-error controlName="state" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">State is required.</app-error> -->
+            
             <app-error controlName="state" [conditonalError]="(registerFormGroup.controls['state'].touched ||registerFormGroup.controls['state'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['state'].invalid"  error="required">State name is required.</app-error>
 
@@ -140,7 +135,7 @@
               <option value="">Choose city</option>
               <option [value]="city.name" *ngFor="let city of cities">{{city.name}}</option>
             </select>
-            <!-- <app-error controlName="city" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">City is required.</app-error> -->
+           
             <app-error controlName="city" [conditonalError]="(registerFormGroup.controls['city'].touched ||registerFormGroup.controls['city'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['city'].invalid"  error="required">City name is required.</app-error>
 
@@ -150,8 +145,7 @@
           <div class="form-group col-md-3">
             <label><b><span class="text-danger">*</span> Pincode:</b></label>
             <input type="number" class="form-control" formControlName="pincode" placeholder="Enter your pincode">
-              <!-- <app-error controlName="pincode" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Pincode is required.</app-error>
-              <app-error controlName="pincode"  error="pattern">Pincode length should be 6 without containing 0,1,2,3 at first position.</app-error> -->
+              
               <app-error controlName="pincode" [conditonalError]="(registerFormGroup.controls['pincode'].touched ||registerFormGroup.controls['pincode'].dirty ||isInvalidRegisterForm) 
                 && registerFormGroup.controls['pincode'].invalid"  error="required">Pincode is required.</app-error>
               <app-error controlName="pincode" [conditonalError]="(registerFormGroup.controls['pincode'].touched ||registerFormGroup.controls['pincode'].dirty ||isInvalidRegisterForm)
