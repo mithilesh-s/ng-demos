@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DropdownDataService } from 'src/services/dropdown-data.service';
 import { passwordValidator } from 'src/shared/PasswordValidator';
@@ -41,90 +41,12 @@ export class RegisterComponent implements OnInit {
  
   // textRegex: RegExp = /^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$/
   textRegex: RegExp = /^([A-Za-z]+)$/
-
   emailRegex: RegExp = /^[A-Za-z._]{3,}@[A-Za-z]{3,5}[.]{1}[A-Za-z]{1,3}$/
   pincodeRegex: RegExp = /^[4-9][0-9]{5}$/  
   addressRegex: RegExp = /^([a-zA-Z0-9,.'-]+ )+[a-zA-Z0-9,.'-]+$|^[a-zA-Z0-9,.'-]+$/
-  passwordRegex: string = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}"
+  passwordRegex: string = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}"
 
 
-  // all the getters method for register form
-
-  get firstName() {
-    return this.registerFormGroup.get('firstName')
-  }
-  get lastName() {
-    return this.registerFormGroup.get('lastName')
-  }
-  get email() {
-    return this.registerFormGroup.get('email')
-  }
-  get password() {
-    return this.registerFormGroup.get('password')
-  }
-  get confirmPassword() {
-    return this.registerFormGroup.get('confirmPassword')
-  }
-  get dob() {
-    return this.registerFormGroup.get('dob')
-  }
-  get address1() {
-    return this.registerFormGroup.get('address1')
-  }
-  get address2() {
-    return this.registerFormGroup.get('address2')
-  }
-  get country() {
-    return this.registerFormGroup.get('country')
-  }
-  get state() {
-    return this.registerFormGroup.get('state')
-  }
-  get city() {
-    return this.registerFormGroup.get('city')
-  }
-  get pincode() {
-    return this.registerFormGroup.get('pincode')
-  }
-
-
-  // all the getters for editable register form
-  get editableFirstName(){
-    return this.editableRegisterFormGroup.get('editableFirstName')
-  }
-  get editableLastName(){
-    return this.editableRegisterFormGroup.get('editableLastName')
-  }
-
-  get editableEmail(){
-    return this.editableRegisterFormGroup.get('editableEmail')
-  }
-  get editableDob(){
-    return this.editableRegisterFormGroup.get('editableDob')
-  }
-  get editableAddress1(){
-    return this.editableRegisterFormGroup.get('editableAddress1')
-  }
-  get editableAddress2(){
-    return this.editableRegisterFormGroup.get('editableAddress2')
-  }
-  get editableCountry(){
-    return this.editableRegisterFormGroup.get('editableCountry')
-  }
-  get editableState(){
-    return this.editableRegisterFormGroup.get('editableState')
-  }
-  get editableCity(){
-    return this.editableRegisterFormGroup.get('editableCity')
-  }
-  get editablePincode(){
-    return this.editableRegisterFormGroup.get('editablePincode')
-  }
-
-
-  
-
- 
 
   ngOnInit(): void {
 
@@ -168,9 +90,13 @@ export class RegisterComponent implements OnInit {
   
    }
 
+  // submitting the register form
+
   submitRegisterForm() {
     if (this.registerFormGroup.invalid) {
       this.isInvalidRegisterForm = true;
+      this.toasterService.error("Please fill out the required fields.")
+      // this.openModal()
     
     }
     if(this.registerFormGroup.valid){
@@ -193,16 +119,18 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  // submitting model editable register form
 
   submitEditableRegisterForm(){
     if(this.editableRegisterFormGroup.invalid)
     {
       this.isInvalidEditableRegisterForm=true;
+      this.toasterService.error("Please fill out the required fields.")
     } 
     if(this.editableRegisterFormGroup.valid)
     {
-      console.log(this.editableRegisterFormGroup.value)
       this.showUpdatedData=true;
+      this.isFullNameEditable=true;
       this.isEditable=false
 
       this.registerFormGroup.value.firstName=this.editableRegisterFormGroup.value.editableFirstName;
@@ -246,7 +174,14 @@ export class RegisterComponent implements OnInit {
   onEditableCountryChange(country: any) {
    
     this.editableStates = this._dropdownDataService.getStates().filter((x) => x.country_name == country.target.value);
-    this.editableCities = this._dropdownDataService.getCities().filter((x) => x.country_name == country.target.value);
+    this.editableCities = []
+    if(country.target.value==this.editableCountries[country.target["selectedIndex"] - 1].name){
+      this.editableRegisterFormGroup.patchValue({
+        editableState:'',
+        editableCity:''
+      
+      })
+    }
  
   }
 
@@ -281,6 +216,7 @@ export class RegisterComponent implements OnInit {
   onCloseHandled() {
     this.display = "none";
     this.registerFormGroup.reset();
+    this.str=''
   }
 
 
@@ -375,9 +311,8 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['/login'])
 
     }
-    editConfirmBtn(){
-      this.isFullNameEditable=true;
-    }
+
+   
 
 
     

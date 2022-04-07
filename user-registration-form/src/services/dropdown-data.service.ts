@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { City, Country, State } from 'src/interfaces/DropdownDataInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -6,14 +7,14 @@ import { Injectable } from '@angular/core';
 export class DropdownDataService {
 
   constructor() { }
-  getCountries() {
+  getCountries():Country {
     return [
       { id: 1, name: 'India' },
       { id: 2, name: 'USA' }
     ]
 
   }
-  getStates() {
+  getStates():State {
 
     return [
       { id: 1, country_name: "India", name: 'Uttar Pradesh' },
@@ -28,7 +29,7 @@ export class DropdownDataService {
     ]
 
   }
-  getCities() {
+  getCities():City {
 
     return [
       {id:1,state_name:'Uttar Pradesh', country_name:'India',name:'Noida'},

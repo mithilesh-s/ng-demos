@@ -8,9 +8,9 @@ import { Observable, of, throwError } from 'rxjs';
 })
 export class AuthService {
 
-  serviceEmail = '';
-  servicePassword = '';
-  serviceDob = '';
+  serviceEmail:string = '';
+  servicePassword:string = '';
+  serviceDob:string = '';
 
   constructor(private router: Router,private toasterService:ToastrService) { }
 

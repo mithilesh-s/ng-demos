@@ -11,33 +11,34 @@
         <div class="row">
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> First Name:</b></label>
-            <input type="text"
-              [class.is-invalid]="(firstName?.dirty ||isInvalidRegisterForm ||firstName?.touched)&&firstName?.invalid"
-              class="form-control" formControlName="firstName" placeholder="Enter your first name">
-            <div *ngIf="(firstName?.dirty ||isInvalidRegisterForm || firstName?.touched)&&firstName?.invalid">
-              <small class="text-danger" *ngIf="firstName?.errors?.['required']">First name is required</small>
-              <small class="text-danger" *ngIf="firstName?.errors?.['pattern']">First name is not valid</small>
+            <input type="text" class="form-control" formControlName="firstName" placeholder="Enter your first name">
+              <!-- <app-error controlName="firstName" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">First name is required.</app-error>
+              <app-error controlName="firstName"  error="pattern">First name is not valid.</app-error> -->
+              <app-error controlName="firstName" [conditonalError]="(registerFormGroup.controls['firstName'].touched ||registerFormGroup.controls['firstName'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['firstName'].invalid"  error="required">First name is required.</app-error>
+              <app-error controlName="firstName" [conditonalError]="(registerFormGroup.controls['firstName'].touched ||registerFormGroup.controls['firstName'].dirty ||isInvalidRegisterForm)
+                && registerFormGroup.controls['firstName'].invalid"  error="pattern">First name is not valid.</app-error>
             </div>
-          </div>
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> Last Name:</b></label>
-            <input type="text"
-              [class.is-invalid]="(lastName?.dirty ||isInvalidRegisterForm || lastName?.touched)&&lastName?.invalid"
-              class="form-control" formControlName="lastName" placeholder="Enter your last name">
-            <div *ngIf="(lastName?.dirty ||isInvalidRegisterForm || lastName?.touched)&&lastName?.invalid">
-              <small class="text-danger" *ngIf="lastName?.errors?.['required']">Last name is required</small>
-              <small class="text-danger" *ngIf="lastName?.errors?.['pattern']">Last name is not valid</small>
-            </div>
+            <input type="text" class="form-control" formControlName="lastName" placeholder="Enter your last name">
+              <!-- <app-error controlName="lastName" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Last name is required.</app-error>
+              <app-error controlName="lastName"  error="pattern">Last name is not valid.</app-error> -->
+              <app-error controlName="lastName" [conditonalError]="(registerFormGroup.controls['lastName'].touched ||registerFormGroup.controls['lastName'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['lastName'].invalid"  error="required">Last name is required.</app-error>
+              <app-error controlName="lastName" [conditonalError]="(registerFormGroup.controls['lastName'].touched ||registerFormGroup.controls['lastName'].dirty ||isInvalidRegisterForm)
+                 && registerFormGroup.controls['lastName'].invalid"  error="pattern">Last name is not valid.</app-error>
           </div>
 
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> Email:</b></label>
-            <input type="email" [class.is-invalid]="(email?.dirty ||isInvalidRegisterForm || email?.touched)&&email?.invalid"
-              class="form-control" formControlName="email" placeholder="Enter your email">
-            <div *ngIf="(email?.dirty ||isInvalidRegisterForm || email?.touched)&&email?.invalid">
-              <small class="text-danger" *ngIf="email?.errors?.['required']">Email is required</small>
-              <small class="text-danger" *ngIf="email?.errors?.['pattern']">Email is not valid</small>
-            </div>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your email">
+              <!-- <app-error controlName="email" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Email is required.</app-error>
+              <app-error controlName="email"  error="pattern">Email is not valid.</app-error> -->
+              <app-error controlName="email" [conditonalError]="(registerFormGroup.controls['email'].touched ||registerFormGroup.controls['email'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['email'].invalid"  error="required">Email is required.</app-error>
+              <app-error controlName="email" [conditonalError]="(registerFormGroup.controls['email'].touched ||registerFormGroup.controls['email'].dirty ||isInvalidRegisterForm)
+                 && registerFormGroup.controls['email'].invalid"  error="pattern">Email is not valid.</app-error>
           </div>
 
         </div>
@@ -47,15 +48,17 @@
             <label class="form-label"><b><span class="text-danger">*</span> Password:</b></label>
             <div class="d-flex">
               <input [value]="hiddenPassword?replacedPassword:originalPassword"  (input)="changePasswordInAsterisk($event)"
-                [class.is-invalid]="(password?.dirty ||isInvalidRegisterForm || password?.touched)&&password?.invalid"
-                class="form-control" formControlName="password" placeholder="Enter your password">
+               class="form-control" formControlName="password" placeholder="Enter your password">
               <i class="fas fa-eye eye-icon" *ngIf="!hiddenPassword" (click)="hidePassword()"></i>
               <i class="fas fa-eye-slash eye-icon" *ngIf="hiddenPassword" (click)="showPassword()"></i>
             </div>
-            <div *ngIf="(password?.dirty ||isInvalidRegisterForm || password?.touched)&&password?.invalid">
-              <small class="text-danger" *ngIf="password?.errors?.['required']">Password is required</small>
-              <small class="text-danger" *ngIf="password?.errors?.['pattern']">Password length should be atleast 8 with at least one upper case, lower case, numeric and special character. </small>
-            </div>
+              <!-- <app-error controlName="password" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Password is required</app-error>
+              <app-error controlName="password"  error="pattern">Password length should be atleast 8 with at least one upper case, lower case, numeric and special character.</app-error> -->
+              <app-error controlName="password" [conditonalError]="(registerFormGroup.controls['password'].touched ||registerFormGroup.controls['password'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['password'].invalid"  error="required">Password is required.</app-error>
+              <app-error controlName="password" [conditonalError]="(registerFormGroup.controls['password'].touched ||registerFormGroup.controls['password'].dirty ||isInvalidRegisterForm)
+                 && registerFormGroup.controls['password'].invalid"  
+                 error="pattern">Password length should be atleast 8 with at least one upper case, lower case, numeric and special character..</app-error>
 
           </div>
           <div class="mb-3 col-4">
@@ -68,89 +71,91 @@
               <i class="fas fa-eye eye-icon" *ngIf="!hiddenConfirmPassword" (click)="hideConfirmPassword()"></i>
               <i class="fas fa-eye-slash eye-icon" *ngIf="hiddenConfirmPassword" (click)="showConfirmPassword()"></i>
             </div>
-            <div class="validation">
+            <div>
               <small class="text-danger " *ngIf="registerFormGroup.errors?.['misMatch']">Password is not same</small>
             </div>
           </div>
           <div class="mb-3 col-4">
             <label class="form-label"><b><span class="text-danger">*</span> Date of Birth:</b></label>
-            <input [class.is-invalid]="(dob?.dirty ||isInvalidRegisterForm || dob?.touched)&&dob?.invalid" [max]="changeDateFormatToCurrentDate()" type="date"
-              class="form-control" formControlName="dob">
-            <div *ngIf="(dob?.dirty ||isInvalidRegisterForm || dob?.touched)&&dob?.invalid">
-              <small class="text-danger" *ngIf="dob?.errors?.['required']">Date of birth is required</small>
-
-            </div>
+            <input  [max]="changeDateFormatToCurrentDate()" type="date" class="form-control" formControlName="dob">
+            
+            <!-- <app-error controlName="dob" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Date of birth is required</app-error> -->
+            <app-error controlName="dob" [conditonalError]="(registerFormGroup.controls['dob'].touched ||registerFormGroup.controls['dob'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['dob'].invalid"  error="required">Date of birth is required.</app-error>
+            
           </div>
         </div>
 
         <div class="row">
           <div class="mb-3 col-6">
             <label class="form-label"><b><span class="text-danger">*</span> Address 1:</b></label>
-            <input [class.is-invalid]="(address1?.dirty ||isInvalidRegisterForm || address1?.touched)&&address1?.invalid"
-              type="text" class="form-control" formControlName="address1" placeholder="Enter your current address">
-            <div *ngIf="(address1?.dirty ||isInvalidRegisterForm || address1?.touched)&&address1?.invalid">
-              <small class="text-danger" *ngIf="address1?.errors?.['required']">Address 1 is required</small>
-              <small class="text-danger" *ngIf="address1?.errors?.['pattern']">Address 1 is not valid</small>
-            </div>
+            <input type="text" class="form-control" formControlName="address1" placeholder="Enter your current address">
+        
+              <!-- <app-error controlName="address1" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Address 1 is required.</app-error>
+              <app-error controlName="address1"  error="pattern">Address 1 is not valid.</app-error> -->
+              <app-error controlName="address1" [conditonalError]="(registerFormGroup.controls['address1'].touched ||registerFormGroup.controls['address1'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['address1'].invalid"  error="required">Address 1 is required.</app-error>
+              <app-error controlName="address1" [conditonalError]="(registerFormGroup.controls['address1'].touched ||registerFormGroup.controls['address1'].dirty ||isInvalidRegisterForm)
+                 && registerFormGroup.controls['address1'].invalid"  error="pattern">Address 1 is not valid.</app-error>
 
           </div>
           <div class="mb-3 col-6">
             <label class="form-label"><b>Address 2:</b></label>
-            <input [class.is-invalid]="(address2?.dirty ||isInvalidRegisterForm || address2?.touched)&&address2?.invalid"
+            <input 
               type="text" class="form-control" formControlName="address2" placeholder="Enter your permanent address">
-            <div *ngIf="(address2?.dirty ||isInvalidRegisterForm || address2?.touched)&&address2?.invalid">
-              <small class="text-danger" *ngIf="address2?.errors?.['pattern']">Address 2 is not valid</small>
-            </div>
+              <!-- <app-error controlName="address2"  error="pattern">Address 2 is not valid.</app-error> -->
+              <app-error controlName="address2" [conditonalError]="(registerFormGroup.controls['address2'].touched ||registerFormGroup.controls['address2'].dirty ||isInvalidRegisterForm)
+              && registerFormGroup.controls['address2'].invalid"  error="pattern">Address 2 is not valid.</app-error>
           </div>
         </div>
 
         <div class="row mb-3">
           <div class="form-group col-md-3">
             <label><b><span class="text-danger">*</span> Country:</b></label>
-            <select [class.is-invalid]="(country?.dirty ||isInvalidRegisterForm || country?.touched)&&country?.invalid"
+            <select
               class="form-control" formControlName="country" (change)="onCountryChange($event)">
               <option value="">Choose country</option>
               <option [value]="country.name" *ngFor="let country of countries">{{country.name}}</option>
             </select>
-
-            <div *ngIf="(country?.dirty ||isInvalidRegisterForm || country?.touched)&&country?.invalid">
-              <small class="text-danger" *ngIf="country?.errors?.['required']">Country is required</small>
-            </div>
+            <!-- <app-error controlName="country" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Country is required.</app-error> -->
+            <app-error controlName="country" [conditonalError]="(registerFormGroup.controls['country'].touched ||registerFormGroup.controls['country'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['country'].invalid"  error="required">Country name is required.</app-error>
           </div>
 
 
           <div class="form-group col-md-3">
             <label><b><span class="text-danger">*</span> State:</b></label>
-            <select [class.is-invalid]="(state?.dirty ||isInvalidRegisterForm || state?.touched)&&state?.invalid"
-              class="form-control" formControlName="state" (change)="onStateChange($event)">
+            <select class="form-control" formControlName="state" (change)="onStateChange($event)">
               <option value="">Choose state</option>
               <option [value]='state.name' *ngFor="let state of states">{{state.name}}</option>
             </select>
-            <div *ngIf="(state?.dirty ||isInvalidRegisterForm || state?.touched)&&state?.invalid">
-              <small class="text-danger" *ngIf="state?.errors?.['required']">State is required</small>
-            </div>
+            <!-- <app-error controlName="state" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">State is required.</app-error> -->
+            <app-error controlName="state" [conditonalError]="(registerFormGroup.controls['state'].touched ||registerFormGroup.controls['state'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['state'].invalid"  error="required">State name is required.</app-error>
+
           </div>
           <div class="form-group col-md-3">
             <label><b><span class="text-danger">*</span> City:</b></label>
-            <select [class.is-invalid]="(city?.dirty ||isInvalidRegisterForm || city?.touched)&&city?.invalid" class="form-control"
-              formControlName="city">
+            <select class="form-control" formControlName="city">
               <option value="">Choose city</option>
               <option [value]="city.name" *ngFor="let city of cities">{{city.name}}</option>
             </select>
-            <div *ngIf="(city?.dirty ||isInvalidRegisterForm || city?.touched)&&city?.invalid">
-              <small class="text-danger" *ngIf="city?.errors?.['required']">City is required</small>
-            </div>
+            <!-- <app-error controlName="city" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">City is required.</app-error> -->
+            <app-error controlName="city" [conditonalError]="(registerFormGroup.controls['city'].touched ||registerFormGroup.controls['city'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['city'].invalid"  error="required">City name is required.</app-error>
+
           </div>
 
 
           <div class="form-group col-md-3">
             <label><b><span class="text-danger">*</span> Pincode:</b></label>
-            <input [class.is-invalid]="(pincode?.dirty ||isInvalidRegisterForm ||pincode?.touched)&&pincode?.invalid" type="number"
-              class="form-control" formControlName="pincode" placeholder="Enter your pincode">
-            <div *ngIf="(pincode?.dirty ||isInvalidRegisterForm || pincode?.touched)&&pincode?.invalid">
-              <small class="text-danger" *ngIf="pincode?.errors?.['required']">Pincode is required</small>
-              <small class="text-danger" *ngIf="pincode?.errors?.['pattern']">Pincode is not valid</small>
-            </div>
+            <input type="number" class="form-control" formControlName="pincode" placeholder="Enter your pincode">
+              <!-- <app-error controlName="pincode" [isInvalidRegisterForm]="isInvalidRegisterForm" error="required">Pincode is required.</app-error>
+              <app-error controlName="pincode"  error="pattern">Pincode length should be 6 without containing 0,1,2,3 at first position.</app-error> -->
+              <app-error controlName="pincode" [conditonalError]="(registerFormGroup.controls['pincode'].touched ||registerFormGroup.controls['pincode'].dirty ||isInvalidRegisterForm) 
+                && registerFormGroup.controls['pincode'].invalid"  error="required">Pincode is required.</app-error>
+              <app-error controlName="pincode" [conditonalError]="(registerFormGroup.controls['pincode'].touched ||registerFormGroup.controls['pincode'].dirty ||isInvalidRegisterForm)
+                && registerFormGroup.controls['pincode'].invalid"  error="pattern">Pincode length should be 6 without containing 0,1,2,3 at first position.</app-error>
           </div>
 
         </div>
@@ -281,23 +286,22 @@
                    <form [formGroup]="editableRegisterFormGroup" (ngSubmit)="submitEditableRegisterForm()">
                       <div *ngIf="isFullNameEditable" class="mb-3 col-12">
                         <label class="form-label"><b>First Name:</b></label>
-                        <input type="text"
-                          [class.is-invalid]="(editableFirstName?.dirty ||isInvalidEditableRegisterForm ||editableFirstName?.touched)&&editableFirstName?.invalid"
-                          class="form-control" formControlName="editableFirstName" placeholder="Enter your first name">
-                        <div *ngIf="(editableFirstName?.dirty ||isInvalidEditableRegisterForm || editableFirstName?.touched)&&editableFirstName?.invalid">
-                          <small class="text-danger" *ngIf="editableFirstName?.errors?.['required']">First name is required</small>
-                          <small class="text-danger" *ngIf="editableFirstName?.errors?.['pattern']">First name is not valid</small>
-                        </div>
+                        <input type="text" class="form-control" formControlName="editableFirstName" placeholder="Enter your first name">
+
+                        <app-error controlName="editableFirstName" [conditonalError]="(editableRegisterFormGroup.controls['editableFirstName'].touched ||editableRegisterFormGroup.controls['editableFirstName'].dirty ||isInvalidEditableRegisterForm) 
+                        && editableRegisterFormGroup.controls['editableFirstName'].invalid"  error="required">First name is required.</app-error>
+                      <app-error controlName="editableFirstName" [conditonalError]="(editableRegisterFormGroup.controls['editableFirstName'].touched ||editableRegisterFormGroup.controls['editableFirstName'].dirty ||isInvalidEditableRegisterForm)
+                        && editableRegisterFormGroup.controls['editableFirstName'].invalid"  error="pattern">First name is not valid.</app-error>
+
                       </div>
+
                       <div *ngIf="isFullNameEditable" class="mb-3 col-12">
                         <label class="form-label"><b>Last Name:</b></label>
-                        <input type="text"
-                          [class.is-invalid]="(editableLastName?.dirty ||isInvalidEditableRegisterForm || editableLastName?.touched)&&editableLastName?.invalid"
-                          class="form-control" formControlName="editableLastName" placeholder="Enter your last name">
-                        <div *ngIf="(editableLastName?.dirty ||isInvalidEditableRegisterForm || editableLastName?.touched)&&editableLastName?.invalid">
-                          <small class="text-danger" *ngIf="editableLastName?.errors?.['required']">Last name is required</small>
-                          <small class="text-danger" *ngIf="editableLastName?.errors?.['pattern']">Last name is not valid</small>
-                        </div>
+                        <input type="text" class="form-control" formControlName="editableLastName" placeholder="Enter your last name">
+                        <app-error controlName="editableLastName" [conditonalError]="(editableRegisterFormGroup.controls['editableLastName'].touched ||editableRegisterFormGroup.controls['editableLastName'].dirty ||isInvalidEditableRegisterForm) 
+                        && editableRegisterFormGroup.controls['editableLastName'].invalid"  error="required">Last name is required.</app-error>
+                      <app-error controlName="editableLastName" [conditonalError]="(editableRegisterFormGroup.controls['editableLastName'].touched ||editableRegisterFormGroup.controls['editableLastName'].dirty ||isInvalidEditableRegisterForm)
+                        && editableRegisterFormGroup.controls['editableLastName'].invalid"  error="pattern">Last name is not valid.</app-error>
                       </div>
       
                   
@@ -305,40 +309,38 @@
 
                      <div class="mb-3 col-12">
                     <label class="form-label"><b>Email:</b></label>
-                    <input type="email" [class.is-invalid]="(editableEmail?.dirty ||isInvalidEditableRegisterForm || editableEmail?.touched)&&editableEmail?.invalid"
-                      class="form-control" formControlName="editableEmail" placeholder="Enter your Email">
-                    <div *ngIf="(editableEmail?.dirty ||isInvalidEditableRegisterForm || editableEmail?.touched)&&editableEmail?.invalid">
-                      <small class="text-danger" *ngIf="editableEmail?.errors?.['required']">Email is required</small>
-                      <small class="text-danger" *ngIf="editableEmail?.errors?.['pattern']">Email is not valid</small>
-                    </div>
+                    <input type="email" class="form-control" formControlName="editableEmail" placeholder="Enter your Email">
+                
+                    <app-error controlName="editableEmail" [conditonalError]="(editableRegisterFormGroup.controls['editableEmail'].touched ||editableRegisterFormGroup.controls['editableEmail'].dirty ||isInvalidEditableRegisterForm) 
+                    && editableRegisterFormGroup.controls['editableEmail'].invalid"  error="required">Email is required.</app-error>
+                  <app-error controlName="editableEmail" [conditonalError]="(editableRegisterFormGroup.controls['editableEmail'].touched ||editableRegisterFormGroup.controls['editableEmail'].dirty ||isInvalidEditableRegisterForm)
+                    && editableRegisterFormGroup.controls['editableEmail'].invalid"  error="pattern">Email is not valid.</app-error>
+
                   </div>
+
                    <div class="mb-3 col-12">
                     <label class="form-label"><b>Date of Birth:</b></label>
-                    <input [class.is-invalid]="(editableDob?.dirty ||isInvalidEditableRegisterForm || editableDob?.touched)&&editableDob?.invalid" type="date"
-                      class="form-control" formControlName="editableDob" [max]="changeDateFormatToCurrentDate()">
-                    <div *ngIf="(editableDob?.dirty ||isInvalidEditableRegisterForm || editableDob?.touched)&&editableDob?.invalid">
-                      <small class="text-danger" *ngIf="editableDob?.errors?.['required']">Date of birth is required</small>
-        
-                    </div>
+                    <input  type="date" class="form-control" formControlName="editableDob" [max]="changeDateFormatToCurrentDate()">
+                    <app-error controlName="editableDob" [conditonalError]="(editableRegisterFormGroup.controls['editableDob'].touched ||editableRegisterFormGroup.controls['editableDob'].dirty ||isInvalidEditableRegisterForm) 
+                    && editableRegisterFormGroup.controls['editableDob'].invalid"  error="required">Date of Birth is required.</app-error>
                   </div>
+
                    <div class="mb-3 col-12">
                       <label class="form-label"><b>Address 1:</b></label>
-                      <input [class.is-invalid]="(editableAddress1?.dirty ||isInvalidEditableRegisterForm || editableAddress1?.touched)&&editableAddress1?.invalid"
-                        type="text" class="form-control" formControlName="editableAddress1" placeholder="Enter your current address">
-                      <div *ngIf="(editableAddress1?.dirty ||isInvalidEditableRegisterForm || editableAddress1?.touched)&&editableAddress1?.invalid">
-                        <small class="text-danger" *ngIf="editableAddress1?.errors?.['required']">Address 1 is required</small>
-                        <small class="text-danger" *ngIf="editableAddress1?.errors?.['pattern']">Address 1 is not valid</small>
-                      </div>
+                      <input type="text" class="form-control" formControlName="editableAddress1" placeholder="Enter your current address">
+                    
+                      <app-error controlName="editableAddress1" [conditonalError]="(editableRegisterFormGroup.controls['editableAddress1'].touched ||editableRegisterFormGroup.controls['editableAddress1'].dirty ||isInvalidEditableRegisterForm) 
+                      && editableRegisterFormGroup.controls['editableAddress1'].invalid"  error="required">Address1 is required.</app-error>
+                    <app-error controlName="editableAddress1" [conditonalError]="(editableRegisterFormGroup.controls['editableAddress1'].touched ||editableRegisterFormGroup.controls['editableAddress1'].dirty ||isInvalidEditableRegisterForm)
+                      && editableRegisterFormGroup.controls['editableAddress1'].invalid"  error="pattern">Address 1 is not valid.</app-error>
           
                     </div>
                     
                     <div class="mb-3 col-12">
                       <label class="form-label"><b>Address 2:</b></label>
-                      <input [class.is-invalid]="(editableAddress2?.dirty ||isInvalidEditableRegisterForm || editableAddress2?.touched)&&editableAddress2?.invalid"
-                        type="text" class="form-control" formControlName="editableAddress2" placeholder="Enter your permanent address">
-                      <div *ngIf="(editableAddress2?.dirty ||isInvalidEditableRegisterForm || editableAddress2?.touched)&&editableAddress2?.invalid">
-                        <small class="text-danger" *ngIf="editableAddress2?.errors?.['pattern']">Address 2 is not valid</small>
-                      </div>
+                      <input type="text" class="form-control" formControlName="editableAddress2" placeholder="Enter your permanent address">
+                      <app-error controlName="editableAddress2" [conditonalError]="(editableRegisterFormGroup.controls['editableAddress2'].touched ||editableRegisterFormGroup.controls['editableAddress2'].dirty ||isInvalidEditableRegisterForm)
+                      && editableRegisterFormGroup.controls['editableAddress2'].invalid"  error="pattern">Address 2 is not valid.</app-error>
                     </div>
                   
                
@@ -346,31 +348,26 @@
                 <div class=" row mb-3">
                   <div class="form-group col-md-6">
                     <label><b>Country:</b></label>
-                    <select [class.is-invalid]="(editableCountry?.dirty ||isInvalidEditableRegisterForm || editableCountry?.touched)&&editableCountry?.invalid"
-                      class="form-control" formControlName="editableCountry" (change)="onEditableCountryChange($event)">
+                    <select  class="form-control" formControlName="editableCountry" (change)="onEditableCountryChange($event)">
                       <option value="">Choose country</option>
                       <option [value]="country.name" *ngFor="let country of editableCountries">{{country.name}}</option>
                     </select>
-        
-                    <div *ngIf="(editableCountry?.dirty ||isInvalidEditableRegisterForm || editableCountry?.touched)&&editableCountry?.invalid">
-                      <small class="text-danger" *ngIf="editableCountry?.errors?.['required']">Country is required</small>
-                    </div>
+                    <app-error controlName="editableCountry" [conditonalError]="(editableRegisterFormGroup.controls['editableCountry'].touched ||editableRegisterFormGroup.controls['editableCountry'].dirty ||isInvalidEditableRegisterForm) 
+                      && editableRegisterFormGroup.controls['editableCountry'].invalid"  error="required">Country name is required.</app-error>
                   </div>
         
         
                   <div class="form-group col-md-6">
                     <label><b>State:</b></label>
-                    <select [class.is-invalid]="(editableState?.dirty ||isInvalidEditableRegisterForm || editableState?.touched)&&editableState?.invalid"
-                      class="form-control" formControlName="editableState" (change)="onEditableStateChange($event)">
-                      
+                    <select  class="form-control" formControlName="editableState" (change)="onEditableStateChange($event)">
+                      <option value="">Choose State</option>
                       <ng-container *ngIf="!editableStates">
                         <option [value]='registerFormGroup.value.state'>{{registerFormGroup.value.state}}</option>
                       </ng-container>
                       <option [value]='state.name' *ngFor="let state of editableStates">{{state.name}}</option>
                     </select>
-                    <div *ngIf="(editableState?.dirty ||isInvalidEditableRegisterForm || editableState?.touched)&&editableState?.invalid">
-                      <small class="text-danger" *ngIf="editableState?.errors?.['required']">State is required</small>
-                    </div>
+                    <app-error controlName="editableState" [conditonalError]="(editableRegisterFormGroup.controls['editableState'].touched ||editableRegisterFormGroup.controls['editableState'].dirty ||isInvalidEditableRegisterForm) 
+                      && editableRegisterFormGroup.controls['editableState'].invalid"  error="required">State name is required.</app-error>
                   </div>
               </div>
 
@@ -378,33 +375,29 @@
               <div class="row mb-3">
                 <div class="form-group col-md-6">
                   <label><b>City:</b></label>
-                  <select [class.is-invalid]="(editableCity?.dirty ||isInvalidEditableRegisterForm || editableCity?.touched)&&editableCity?.invalid" class="form-control"
-                    formControlName="editableCity">
+                  <select class="form-control" formControlName="editableCity">
                     <option value="">Choose city</option>
                     <ng-container *ngIf="!editableCities">
                       <option [value]='registerFormGroup.value.city'>{{registerFormGroup.value.city}}</option>
                     </ng-container>
                     <option [value]="city.name" *ngFor="let city of editableCities">{{city.name}}</option>
                   </select>
-
-                  <div *ngIf="(editableCity?.dirty ||isInvalidEditableRegisterForm || editableCity?.touched)&&editableCity?.invalid">
-                    <small class="text-danger" *ngIf="editableCity?.errors?.['required']">City is required</small>
-                  </div>
+                  <app-error controlName="editableCity" [conditonalError]="(editableRegisterFormGroup.controls['editableCity'].touched ||editableRegisterFormGroup.controls['editableCity'].dirty ||isInvalidEditableRegisterForm) 
+                  && editableRegisterFormGroup.controls['editableCity'].invalid"  error="required">City name is required.</app-error>
                 </div>
       
       
                 <div class="form-group col-md-6">
                   <label><b>Pincode:</b></label>
-                  <input [class.is-invalid]="(editablePincode?.dirty ||isInvalidEditableRegisterForm ||editablePincode?.touched)&&editablePincode?.invalid" type="number"
-                    class="form-control" formControlName="editablePincode" placeholder="Enter your pincode">
-                  <div *ngIf="(editablePincode?.dirty ||isInvalidEditableRegisterForm || editablePincode?.touched)&&editablePincode?.invalid">
-                    <small class="text-danger" *ngIf="editablePincode?.errors?.['required']">Pincode is required</small>
-                    <small class="text-danger" *ngIf="editablePincode?.errors?.['pattern']">Pincode is not valid</small>
-                  </div>
+                  <input  type="number" class="form-control" formControlName="editablePincode" placeholder="Enter your pincode">
+                  <app-error controlName="editablePincode" [conditonalError]="(editableRegisterFormGroup.controls['editablePincode'].touched ||editableRegisterFormGroup.controls['editablePincode'].dirty ||isInvalidEditableRegisterForm) 
+                    && editableRegisterFormGroup.controls['editablePincode'].invalid"  error="required">Pincode is required.</app-error>
+                  <app-error controlName="editablePincode" [conditonalError]="(editableRegisterFormGroup.controls['editablePincode'].touched ||editableRegisterFormGroup.controls['editablePincode'].dirty ||isInvalidEditableRegisterForm)
+                    && editableRegisterFormGroup.controls['editablePincode'].invalid"  error="pattern">Pincode length should be 6 without containing 0,1,2,3 at first position.</app-error>
                 </div>
               </div>
         
-              <button *ngIf="isEditable" type="submit" class="btn btn-success" (click)="editConfirmBtn()" id="confirm-btn">Confirm</button>
+              <button *ngIf="isEditable" type="submit" class="btn btn-success" id="confirm-btn">Confirm</button>
               <button *ngIf="isEditable" type="button" class="btn btn-primary" id="cancel-btn" (click)="onCloseHandled()">Cancel</button>
               </form>
               </div>

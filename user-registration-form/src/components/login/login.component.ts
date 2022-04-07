@@ -14,9 +14,9 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router,private toasterService:ToastrService) { }
 
   loginFormGroup!:FormGroup
-  loginEmail:any="";
-  loginPassword:any="";
-  loginDob:any="";
+  loginEmail:string="";
+  loginPassword:string="";
+  loginDob:string="";
   
 
 
