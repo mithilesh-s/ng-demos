@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -7,40 +8,19 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'web-storage-demo';
-  data: any
-  data1: any
-  cookieValue: any
-  cookieValue1: any
-  constructor(private cookieService: CookieService) {
+  
 
-  }
-  ngOnInit() {
-    let company = {
-      name: "code store",
-      tech: ["angular", ".net", "react", "react-native", "devops"],
-      employee: 70,
-      location: 'noida',
-      time: new Date().getMinutes()
-    }
-    let company1 = {
-      name: "code store",
-      tech: ["angular", ".net", "react", "react-native", "devops"],
-      employee: 70,
-      location: 'noida',
-      time: new Date().getMinutes()
-    }
-    const person = {
-      firstName: "John",
-      lastName: "Doe",
-      age: 50,
-      eyeColor: "blue"
-    };
-    const dateNow = new Date();
-    dateNow.setMinutes(dateNow.getMinutes() + 1);
-    console.log(dateNow)
-    this.cookieService.set('Test', JSON.stringify(company),0.0007);
-    // this.cookieService.set('Test1', JSON.stringify(company1),{expires:0.007});
+}
+
+
+
+
+
+
+
+
+
+// this.cookieService.set('Test1', JSON.stringify(company1),{expires:0.007});
     // this.cookieService.set('person', JSON.stringify(person),{expires:0.007});
     // this.cookieService.set('Test1', JSON.stringify(company),{expires:0.007});
     // this.cookieService.set('Test11', JSON.stringify(company1),{expires:0.007});
@@ -75,24 +55,3 @@ export class AppComponent {
     // this.cookieService.set('Test100', JSON.stringify(company),{expires:0.007});
     // this.cookieService.set('Test11000', JSON.stringify(company1),{expires:0.007});
     // this.cookieService.set('person1', JSON.stringify(person),{expires:0.007});
-
-    this.cookieValue = this.cookieService.get('Test');
-    // this.cookieValue1=JSON.parse(this.cookieService.get('Test1') ||" ")
-
-
-
-    localStorage.setItem("myCompany", JSON.stringify(company))
-    this.data = JSON.parse(localStorage.getItem("myCompany") || " ")
-    console.log(this.data);
-
-
-  }
-
-
-
-
-
-
-
-
-}
