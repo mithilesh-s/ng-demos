@@ -1,0 +1,60 @@
+<div class="col-md-3 offset-sm-4 mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h1 class="text-center">Create Your Account</h1>
+            <form [formGroup]="signUpForm" class="mt-4" (ngSubmit)="submitSignUpForm()">
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="name" placeholder="Enter Your Full Name">
+                </div>
+                <div class="form-group mt-2">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter Your Email">
+                </div>
+                <div class="form-group mt-2">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Enter Your Password">
+                </div>
+
+                <div class="mt-2">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block social-media-btn">Register</button>
+                </div>
+            </form>
+            <div class="d-flex mt-3">
+                <hr id="hr1"><span>or sign up with</span>
+                <hr id="hr2">
+            </div>
+            <div class="row mt-3">
+                <div class="col-sm-6">
+                    <div class="card" style="background-color: #F2F8FF;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <asl-google-signin-button></asl-google-signin-button>
+                                </div>
+                                <div class="col-sm-8">
+                                    <span><b>Google</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card" style="background-color: #F2F8FF;" (click)="signInWithFB()">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img src="assets/facebook logo.png" alt="" style="height: 25px;">
+                                </div>
+                                <div class="col-sm-8">
+                                    <span><b>Facebook</b></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+              <p class="mt-2">Already have an account? Please <a href="#" routerLink="/login">login</a></p>
+        </div>
+
+    </div>
+
+</div>

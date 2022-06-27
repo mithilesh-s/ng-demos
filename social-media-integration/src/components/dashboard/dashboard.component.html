@@ -1,0 +1,42 @@
+<div class="col-md-5 offset-sm-3 mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+                <img src="{{photoUrl}}" alt="" >
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="key">FirstName:</h5>
+                      </div>
+                      <div class="col-md-8">
+                        <h5 class="value">{{firstName}}</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="key">LastName:</h5>
+                      </div>
+                      <div class="col-md-8">
+                        <h5 class="value">{{lastName}}</h5>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="key">Email:</h5>
+                      </div>
+                      <div class="col-md-8">
+                        <h5 class="value">{{email}}</h5>
+                      </div>
+                  </div>
+                 
+            </div>
+          </div>
+          <button class="btn btn-danger mt-3 offset-sm-10" (click)="logout()" routerLink="/">Logout</button>
+         
+        </div>
+
+    </div>
+</div>
+
