@@ -32,6 +32,9 @@ export class SignupComponent implements OnInit {
 
     this.authService.authState.subscribe((user) => {
       this.user = user;
+      console.log(this.user);
+      
+      
       this.loggedIn = (user != null);
       if(!!this.user){
         localStorage.setItem('firstName', this.user.firstName)
