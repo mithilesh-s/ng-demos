@@ -34,6 +34,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { GreetingComponent } from 'src/components/greeting/greeting.component';
+import { RxjsModule } from 'src/module/rxjs/rxjs.module';
 
 @NgModule({
   declarations: [
@@ -71,8 +72,8 @@ import { GreetingComponent } from 'src/components/greeting/greeting.component';
     MatGridListModule,
     MatMenuModule,
     MatTreeModule,
-    DragDropModule
-  ],
+    DragDropModule,
+    ],
   providers: [
     {
       provide: 'SocialAuthServiceConfig',

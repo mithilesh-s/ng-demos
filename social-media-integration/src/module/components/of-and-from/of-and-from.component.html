@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <h1><b>1.Of</b> operator is used to convert its anguments into observable stream</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="border rounded py-2 px-3 bg-light">
+                <strong>Data: </strong>Of('Mithilesh', 'Kumar', 'Shah')
+            </div>
+            <hr>
+            <ul id="elContainer1"></ul>
+        </div>
+        <div class="col-md-6">
+            <div class="border rounded py-2 px-3 bg-light">
+                <strong>Data: </strong>Of(&#123;firstName:'Mithilesh',middleName:'Kumar',lastName:'Shah'&#125;)
+            </div>
+            <hr>
+            <ul>
+                <li><strong>First Name: </strong>{{message.firstName}}</li>
+                <li><strong>Middle Name: </strong>{{message.middleName}}</li>
+                <li><strong>Last Name: </strong>{{message.lastName}}</li>
+            </ul>
+        </div>
+    </div>
+    <h1><b>2.From</b> operator converts almost everything(Array, array like object, promise, an iterable object or an observable like object) into observable stream</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <strong>Array</strong>
+            <hr>
+            <div class="border rounded py-2 px-3 bg-light">
+                <strong>Data: </strong>from(['India', 'USA', 'UK'])
+            </div>
+            <hr>
+            <ul id="elContainer3"></ul>
+        </div>
+        <div class="col-md-4">
+            <strong>Promise</strong>
+            <hr>
+            <div class="border rounded py-2 px-3 bg-light">
+                <strong>Data: </strong>Promise to Observable
+            </div>
+            <hr>
+            <ul id="elContainer4"></ul>
+        </div>
+        <div class="col-md-4">
+            <strong>String</strong>
+            <hr>
+            <div class="border rounded py-2 px-3 bg-light">
+                <strong>Data: </strong>String to Observable
+            </div>
+            <hr>
+            <ul id="elContainer5"></ul>
+        </div>
+    
+    </div>
+</div>

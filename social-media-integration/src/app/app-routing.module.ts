@@ -26,6 +26,10 @@ const routes: Routes = [
     {path:'tree',component:TreeComponent},
     {path:'drag-and-drop',component:DragAndDropComponent},
    ]},
+   {
+    path: 'rxjs',
+    loadChildren: () => import('src/module/rxjs/rxjs.module').then(m => m.RxjsModule)
+  }
   
   
 
