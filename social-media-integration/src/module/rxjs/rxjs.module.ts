@@ -9,6 +9,14 @@ import { FromEventComponent } from '../components/from-event/from-event.componen
 import { IntervalAndTimerComponent } from '../components/interval-and-timer/interval-and-timer.component';
 import { OfAndFromComponent } from '../components/of-and-from/of-and-from.component';
 import { ToArrayComponent } from '../components/to-array/to-array.component';
+import { SubjectComponent } from '../components/subject/subject.component';
+import { Comp1Component } from '../components/comp/comp1/comp1.component';
+import { Comp2Component } from '../components/comp/comp2/comp2.component';
+import { Comp3Component } from '../components/comp/comp3/comp3.component';
+import { ReplaySubjectComponent } from '../components/replay-subject/replay-subject.component';
+import { CustomObservableComponent } from '../components/custom-observable/custom-observable.component';
+import { MapComponent } from '../components/map/map.component';
+import { PluckComponent } from '../components/pluck/pluck.component';
 
 
 @NgModule({
@@ -19,7 +27,15 @@ import { ToArrayComponent } from '../components/to-array/to-array.component';
     FromEventComponent,
     IntervalAndTimerComponent,
     OfAndFromComponent,
-    ToArrayComponent
+    ToArrayComponent,
+    SubjectComponent,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    ReplaySubjectComponent,
+    CustomObservableComponent,
+    MapComponent,
+    PluckComponent
   ],
   imports: [
     CommonModule,
