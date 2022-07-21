@@ -1,0 +1,30 @@
+<div *ngIf="!isValid" class="alert alert-danger" role="alert">
+  Kindly provide query!
+</div>
+<div class="card shadow" style="height:750px;" >
+ <div class="card-header" style="position: sticky;">
+  ChatBot Alex
+ </div>
+  <div class="card-body " style="overflow: scroll;" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div class="message" [ngClass]="{from:initialMessage!=null}">{{initialMessage}}</div>
+    <div *ngFor="let message of messages;let i=index">
+      <div class="message" [ngClass]="{from: message.author === 'bot',to: message.author === 'user'}">{{ message.content
+        }}</div>
+        
+      <div *ngIf="progress && i==messages.length-1" class="dot-elastic ml-5"></div>
+    </div>
+  </div>
+  <div class="card-footer" style="position: sticky;">
+    <div class="mb-2" *ngIf="messages.length==0 && initialMessage!=null">
+      <span>Total messages: 1</span>
+    </div>
+    <div class="mb-2" *ngIf="messages.length != 0">
+      <span>Total messages: {{ messages.length+1 }}</span>
+    </div>
+    <input class="form-control" [(ngModel)]="value" (keyup.enter)="sendMessage()"
+      placeholder="enter your queries here in small case" type="text" />
+    <button class="btn btn-primary mt-2" (click)="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- <button class="btn btn-danger" (click)="getBotMessage()">BotMessage</button> -->

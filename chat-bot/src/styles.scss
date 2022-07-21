@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+body{
+    color: #421; 
+	font-weight: bold; 
+	font-size: 18px; 
+	font-family: "Courier New"; 
+}
