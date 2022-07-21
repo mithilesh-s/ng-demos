@@ -18,6 +18,8 @@ export class Comp1Component implements OnInit {
   }
   
   onChange(userName){
+    localStorage.setItem('name',userName.value);
+
     this._utilityService.name.next(userName.value)
   }
 

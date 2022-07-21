@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { UtilityService } from 'src/services/utility.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { UtilityService } from 'src/services/utility.service';
 })
 export class SubjectComponent implements OnInit, OnDestroy {
 
-  constructor(private _utilityService: UtilityService) { }
+  constructor(private _utilityService: UtilityService, private cdr:ChangeDetectorRef) { }
   userName:string
 
   ngOnInit(): void {
@@ -18,7 +18,11 @@ export class SubjectComponent implements OnInit, OnDestroy {
     })
   }
   ngOnDestroy(): void {
-    this._utilityService.exclusive.next(false)
+    
+  }
+  ngAfterViewChecked() {
+   this.cdr.detectChanges();
+   this._utilityService.exclusive.next(false)
   }
 
 }

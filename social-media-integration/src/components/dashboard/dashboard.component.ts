@@ -18,18 +18,14 @@ export class DashboardComponent implements OnInit {
   constructor(private router:Router, private authService: SocialAuthService) { }
 
   ngOnInit(): void {
-    this.firstName=localStorage.getItem('firstName')
-    this.lastName=localStorage.getItem('lastName')
-    this.photoUrl=localStorage.getItem('photoUrl')
-    this.email=localStorage.getItem('email')
+    this.router.navigate(['/rxjs'])
+    
     
   }
   logout(){
     this.authService.signOut();
     localStorage.clear();
     this.router.navigate(['/signup'])
-    
-    
   }
   
 

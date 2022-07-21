@@ -27,6 +27,7 @@ export class ReplaySubjectComponent implements OnInit {
 
   methodInterval: boolean = false;
   intervalValue: string;
+  userName:string;
 
 
 
@@ -34,6 +35,12 @@ export class ReplaySubjectComponent implements OnInit {
     this._utilityService.videoEmit.subscribe(res => {
       this.user1VideoList.push(res)
     })
+
+
+    window.addEventListener('storage', event=>{
+     this.userName=event.newValue;
+      
+    }, false);
 
     
   }

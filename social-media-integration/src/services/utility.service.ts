@@ -1,4 +1,6 @@
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
@@ -6,7 +8,7 @@ import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
 })
 export class UtilityService {
 
-  constructor() { }
+  constructor(private authService:SocialAuthService,private router:Router) { }
 
 
   exclusive=new Subject<boolean>();
@@ -20,7 +22,11 @@ export class UtilityService {
     el.innerHTML = value
     document.getElementById(containerId).appendChild(el);
   }
-
+  logout(){
+    this.authService.signOut();
+    localStorage.clear();
+    this.router.navigate(['/signup'])
+  }
 
 
 }

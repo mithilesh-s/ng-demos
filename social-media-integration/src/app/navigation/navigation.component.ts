@@ -33,5 +33,8 @@ export class NavigationComponent {
   dashboard(){
     this.router.navigate(['dashboard1'],{relativeTo:this.route})
   }
+  greeting(){
+    this.router.navigate(['/navigation'])
+  }
 
 }

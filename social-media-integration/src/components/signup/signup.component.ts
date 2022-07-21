@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   user: SocialUser;
   loggedIn: boolean;
   signUpForm: FormGroup;
+  glow:boolean=true;
 
   constructor(private authService: SocialAuthService,private formBuilder:FormBuilder, private router:Router) { }
 
@@ -27,14 +28,13 @@ export class SignupComponent implements OnInit {
     password:['',[Validators.required]]
    })
 
-
+   setTimeout(()=>{
+    this.glow=false;
+   },3000)
 
 
     this.authService.authState.subscribe((user) => {
       this.user = user;
-      console.log(this.user);
-      
-      
       this.loggedIn = (user != null);
       if(!!this.user){
         localStorage.setItem('firstName', this.user.firstName)
@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
         localStorage.setItem('email', this.user.email)
       }
       if(this.loggedIn){
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/rxjs'])
       }
     });
 

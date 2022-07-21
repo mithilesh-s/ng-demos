@@ -35,6 +35,9 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { GreetingComponent } from 'src/components/greeting/greeting.component';
 import { RxjsModule } from 'src/module/rxjs/rxjs.module';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+
 
 @NgModule({
   declarations: [
@@ -73,6 +76,8 @@ import { RxjsModule } from 'src/module/rxjs/rxjs.module';
     MatMenuModule,
     MatTreeModule,
     DragDropModule,
+    HttpClientModule,
+    LoadingBarModule 
     ],
   providers: [
     {
